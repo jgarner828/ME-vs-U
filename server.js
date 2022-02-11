@@ -40,11 +40,3 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
-
-// Ask team about doing this instead
-// app.engine('handlebars', handlebars({
-//   defaultLayout: 'main',
-//   layoutsDir: path.join(__dirname, '/views/layouts')
-// }));
-// app.set('views', path.join(__dirname, '/views'));
-// app.set('view engine', 'handlebars');
