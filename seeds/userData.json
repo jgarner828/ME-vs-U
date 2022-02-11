@@ -1,0 +1,22 @@
+[
+    {
+      "username": "John",
+      "email": "jonh@mevsu.com",
+      "password": "password12345"
+    },
+    {
+      "username": "Sarah",
+      "email": "sarah@mevsu.com",
+      "password": "password12345"
+    },
+    {
+      "username": "Justin",
+      "email": "justin@mevsu.com",
+      "password": "password12345"
+    },
+    {
+        "username": "Melissa",
+        "email": "melissa@mevsu.com",
+        "password": "password12345"
+      }
+  ]
