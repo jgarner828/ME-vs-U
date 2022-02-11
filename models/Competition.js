@@ -40,7 +40,7 @@ Competition.init(
         allowNull: false,
       },
       uom: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       winner:{

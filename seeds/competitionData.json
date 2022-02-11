@@ -1,0 +1,35 @@
+[
+    {
+      "title": "Water Competition",
+      "category": "health",
+      "description": "Consistently meet your water goals each day",
+      "reward":"",
+      "quantity": "90",
+      "uom":"ounces",
+      "winner":"",
+      "isPublic": "false",
+      "isComplete": "false"
+    },
+    {
+        "title": "Fitness Competition",
+        "category": "health",
+        "description": "Workout today",
+        "reward":"",
+        "quantity": "1",
+        "uom":"workouts",
+        "winner":"",
+        "isPublic": "true",
+        "isComplete": "false"
+      },
+      {
+        "title": "Savings Competition",
+        "category": "finance",
+        "description": "Don't spend anything in a day",
+        "reward":"",
+        "quantity": "1",
+        "uom":"days",
+        "winner":"",
+        "isPublic": "false",
+        "isComplete": "false"
+      }
+  ]
