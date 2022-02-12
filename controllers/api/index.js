@@ -1,16 +1,8 @@
 const router = require('express').Router();
+const userRoutes = require('./userRoutes');
 
-router.get('/', (req, res) => {
-    try {
 
-        res.json('api root connection')
-        
-    } catch (error) {
-
-        res.status(500).json(error);
-        
-    }
-})
+router.get('/users', userRoutes);
 
 
 
