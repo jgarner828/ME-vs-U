@@ -24,7 +24,7 @@
         "title": "Savings Competition",
         "category": "finance",
         "description": "Don't spend anything in a day",
-        "reward":"",
+        "reward":"0",
         "quantity": "1",
         "uom":"days",
         "isPublic": "false",
