@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jgarner828/ME-vs-U#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
@@ -26,7 +27,6 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
-    "sequelize": "^6.16.0",
-    "bcrypt": "^5.0.0"
+    "sequelize": "^6.16.0"
   }
 }

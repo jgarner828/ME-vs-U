@@ -6,7 +6,7 @@
       "reward":"",
       "quantity": "90",
       "uom":"ounces",
-      "winner":"",
+
       "isPublic": "false",
       "isComplete": "false"
     },
@@ -17,7 +17,6 @@
         "reward":"",
         "quantity": "1",
         "uom":"workouts",
-        "winner":"",
         "isPublic": "true",
         "isComplete": "false"
       },
@@ -28,7 +27,6 @@
         "reward":"",
         "quantity": "1",
         "uom":"days",
-        "winner":"",
         "isPublic": "false",
         "isComplete": "false"
       }
