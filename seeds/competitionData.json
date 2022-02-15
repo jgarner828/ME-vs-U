@@ -11,9 +11,9 @@
       "isComplete": "false"
     },
     {
-        "title": "Fitness Competition",
-        "category": "health",
-        "description": "Workout today",
+        "title": "Workout Competition",
+        "category": "fitness",
+        "description": "See how many many workouts you can get in",
         "reward":"",
         "quantity": "1",
         "uom":"workouts",
@@ -21,9 +21,20 @@
         "isComplete": "false"
       },
       {
+        "title": "Daily Steps",
+        "category": "fitness",
+        "description": "See how you pair up with other users to see who takes the most steps!",
+        "reward":"",
+        "quantity": "1",
+        "uom":"steps",
+        "winner":"",
+        "isPublic": "true",
+        "isComplete": "false"
+      },
+      {
         "title": "Savings Competition",
         "category": "finance",
-        "description": "Don't spend anything in a day",
+        "description": "See how much money you can save in a day!",
         "reward":"0",
         "quantity": "1",
         "uom":"days",
