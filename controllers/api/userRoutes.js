@@ -58,4 +58,27 @@ router.post('/logout', (req, res) => {
   }
 });
 
+
+router.get('/adduser', (req, res) => {
+  try {
+    res.render('createuser');
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+router.post('/adduser', (req, res) => {
+
+
+
+  res.status(200).json(req.body)
+try {
+  const { username, email, password } = req.body
+} catch (error) {
+  res.status(500).json(error)
+  
+}
+
+})
+
 module.exports = router;
