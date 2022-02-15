@@ -1,7 +1,15 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Competition extends Model {}
+class Competition extends Model {
+  //function for determining the end date of the competition. Then multiplying it to get milliseconds
+  isComplete() {
+    return (
+      new Date().getTime() >
+      new Date(this.created_at).getTime() + this.duration * 60 * 60 * 1000
+    );
+  }
+}
 
 Competition.init(
   {
@@ -16,9 +24,9 @@ Competition.init(
       allowNull: false,
     },
     category: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.STRING,
     },
@@ -28,48 +36,43 @@ Competition.init(
       defaultValue: DataTypes.NOW,
     },
     duration: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 24,
-      },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 24,
+    },
     reward: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    uom: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    winner: {
+      type: DataTypes.INTEGER,
+    },
+    isPublic: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: true,
+    },
+    owner: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
       },
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      uom: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      winner:{
-        type: DataTypes.INTEGER,
-      },
-      isPublic: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        default: true,
-      },
-      isComplete: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        default: false,
-      },
-      owner: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-      },
+    },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'competition',
+    modelName: "competition",
   }
 );
 

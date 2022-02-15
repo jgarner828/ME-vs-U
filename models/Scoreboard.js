@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Scoreboard extends Model {}
 
@@ -16,27 +16,27 @@ Scoreboard.init(
       allowNull: false,
       default: 0,
     },
-      user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
       },
-      competition_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'competition',
-          key: 'id',
-        },
+    },
+    competition_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "competition",
+        key: "id",
       },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'scoreboard',
+    modelName: "scoreboard",
   }
 );
 
