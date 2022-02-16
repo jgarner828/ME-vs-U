@@ -2,13 +2,14 @@ const { Competition } = require("../../models");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 
-router.post("/", withAuth, async (req, res) => {
+router.post("/addcompetition", withAuth, async (req, res) => {
   try {
     const newCompetition = await Competition.create({
       title: req.body.title,
       category: req.body.category,
-      description: req.body.description,
-      duration: req.body.duration,
+      rules: req.body.rules,
+      start_date: req.body.start_date,
+      end_date: req.body.end_date,
       reward: req.body.reward,
       quantity: req.body.quantity,
       uom: req.body.uom,

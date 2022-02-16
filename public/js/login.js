@@ -1,6 +1,3 @@
-console.log("its working");
-
-
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
