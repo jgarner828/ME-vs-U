@@ -6,9 +6,10 @@
       "reward":"",
       "quantity": "90",
       "uom":"ounces",
-
       "isPublic": "false",
-      "isComplete": "false"
+      "isComplete": "false",
+      "start_date": "2022-02-12 00:00:00",
+      "end_date": "2022-02-16 00:00:00"
     },
     {
         "title": "Workout Competition",
@@ -18,7 +19,9 @@
         "quantity": "1",
         "uom":"workouts",
         "isPublic": "true",
-        "isComplete": "false"
+        "isComplete": "false",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-16 00:00:00"
       },
       {
         "title": "Daily Steps",
@@ -29,7 +32,9 @@
         "uom":"steps",
         "winner":"",
         "isPublic": "true",
-        "isComplete": "false"
+        "isComplete": "false",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-16 00:00:00"
       },
       {
         "title": "Savings Competition",
@@ -39,6 +44,8 @@
         "quantity": "1",
         "uom":"days",
         "isPublic": "false",
-        "isComplete": "false"
+        "isComplete": "false",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-16 00:00:00"
       }
   ]
