@@ -2,13 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Competition extends Model {
-  //function for determining the end date of the competition. Then multiplying it to get milliseconds
-  isComplete() {
-    return (
-      new Date().getTime() >
-      new Date(this.created_at).getTime() + this.duration * 60 * 60 * 1000
-    );
-  }
+  
 }
 
 Competition.init(
@@ -30,15 +24,18 @@ Competition.init(
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    create_date: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    duration: {
-      type: DataTypes.INTEGER,
+    start_date: {
+      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: 24,
+    },
+    end_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     reward: {
       type: DataTypes.STRING,
