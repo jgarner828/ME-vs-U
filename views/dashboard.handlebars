@@ -1,1 +1,41 @@
-{{> competitionform }}
+<div class="container">
+  <div class="row">
+    <div class="col-auto">
+      <h2>{{username}}'s Dashboard</h2>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+
+{{#if scoreboards.length}}
+  <div class="container">
+    <h3>Active Competitions:</h3>
+    <div class="row">
+      {{#each scoreboards as |scoreboards|}}
+            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition_id}} {{scoreboards.competition.title}}</a></button>
+
+
+
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+
+<br /><br />
+
+{{#if competitions.length}}
+  <div class="container">
+    <h3>Created Competitions</h3>
+    <div class="row">
+      {{#each competitions as |competitions|}}
+            <a href="/competition/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
+
+
+
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+
+  {{!-- <script src="/js/dashboard.js"></script> --}}
