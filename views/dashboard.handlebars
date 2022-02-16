@@ -13,7 +13,26 @@
     <h3>Active Competitions:</h3>
     <div class="row">
       {{#each scoreboards as |scoreboards|}}
-            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition_id}}</a></button>
+            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition_id}} {{scoreboards.competition.title}}</a></button>
+
+
+
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+
+<br /><br />
+
+{{#if competitions.length}}
+  <div class="container">
+    <h3>Created Competitions</h3>
+    <div class="row">
+      {{#each competitions as |competitions|}}
+            <a href="/competition/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
+
+
+
       {{/each}}
     </div>
   </div>

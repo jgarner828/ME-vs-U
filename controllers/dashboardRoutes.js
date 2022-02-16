@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { json } = require("express/lib/response");
 const { Scoreboard, Competition, User } = require("../models");
 const withAuth = require('../utils/auth');
 
@@ -18,11 +19,14 @@ router.get('/', withAuth, async (req, res) => {
           {
             model: Scoreboard,
             attributes: ['id','user_id','competition_id'],
+            include: [{model: Competition, attributes: ['title']}],
           },
       ],
     });
 
     const user = userData.get({ plain: true });
+    const newUser=JSON.stringify(user);
+    console.log(newUser);
 
     res.render('dashboard', {
       ...user,
