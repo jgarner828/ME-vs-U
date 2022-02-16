@@ -1,6 +1,30 @@
-const { Competition } = require("../../models");
+const { Competition, User } = require("../../models");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
+
+
+router.get('/allcompetitions', async (req, res) => {
+  try {
+    const allCompetitions = await Competition.findAll({
+      include: [{
+        model: User,
+        attributes: { exclude: ["password"] },
+        }],
+      order: [['id', 'DESC']],
+    });
+
+    if(!allCompetitions) {
+      res.status(500).json('couldnt get competititons');
+    } else {
+
+      res.json(allCompetitions);
+    }
+  } catch (error) {
+    
+  }
+})
+
+
 
 router.post("/addcompetition", withAuth, async (req, res) => {
   try {
@@ -19,7 +43,7 @@ router.post("/addcompetition", withAuth, async (req, res) => {
     res.json(newCompetition);
   } catch (error) {
     console.error(error);
-    res.sendStatus(500);
+    res.status(500);
   }
 });
 
