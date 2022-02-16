@@ -18,8 +18,8 @@ router.get('/', withAuth, async (req, res) => {
           },
           {
             model: Scoreboard,
-            attributes: ['id','user_id','competition_id'],
-            include: [{model: Competition, attributes: ['title']}],
+            attributes: ['id','user_id','competition_id','isAccepted'],
+            include: [{model: Competition, attributes: ['title','winner','isActive','reward']}],
           },
       ],
     });

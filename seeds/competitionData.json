@@ -3,11 +3,10 @@
       "title": "Water Competition",
       "category": "health",
       "description": "Consistently meet your water goals each day",
-      "reward":"",
+      "reward":"trophy-outline",
       "quantity": "90",
       "uom":"ounces",
       "isPublic": "false",
-      "isComplete": "false",
       "start_date": "2022-02-12 00:00:00",
       "end_date": "2022-02-16 00:00:00",
       "isActive":"true"
@@ -16,11 +15,10 @@
         "title": "Workout Competition",
         "category": "fitness",
         "description": "See how many many workouts you can get in",
-        "reward":"",
+        "reward":"trophy-outline",
         "quantity": "1",
         "uom":"workouts",
         "isPublic": "true",
-        "isComplete": "false",
         "start_date": "2022-02-12 00:00:00",
         "end_date": "2022-02-16 00:00:00",
         "isActive":"true"
@@ -29,27 +27,26 @@
         "title": "Daily Steps",
         "category": "fitness",
         "description": "See how you pair up with other users to see who takes the most steps!",
-        "reward":"",
+        "reward":"trophy-outline",
         "quantity": "1",
         "uom":"steps",
-        "winner":"",
+        "winner":1,
         "isPublic": "true",
-        "isComplete": "false",
         "start_date": "2022-02-12 00:00:00",
-        "end_date": "2022-02-16 00:00:00",
-        "isActive":"true"
+        "end_date": "2022-02-14 00:00:00",
+        "isActive":"false"
       },
       {
         "title": "Savings Competition",
         "category": "finance",
         "description": "See how much money you can save in a day!",
-        "reward":"0",
+        "reward":"trophy-outline",
         "quantity": "1",
         "uom":"days",
         "isPublic": "false",
-        "isComplete": "false",
+        "winner":1,
         "start_date": "2022-02-12 00:00:00",
-        "end_date": "2022-02-16 00:00:00",
-        "isActive":"true"
+        "end_date": "2022-02-13 00:00:00",
+        "isActive":"false"
       }
   ]

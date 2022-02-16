@@ -1,17 +1,59 @@
 [
     {
-      "score": "4"
+      "score": "45",
+      "user_id":"1",
+      "competition_id":"1",
+      "isAccepted":"false"
     },
     {
-        "score": "25"
-      },
-      {
-        "score": "10"
-      },
-      {
-        "score": "11"
-      },
-      {
-        "score": "50"
-      }
+      "score": "4",
+      "user_id":"1",
+      "competition_id":"2",
+      "isAccepted":"true"
+    },
+    {
+      "score": "34",
+      "user_id":"1",
+      "competition_id":"3",
+      "isAccepted":"false"
+    },
+    {
+      "score": "100",
+      "user_id":"1",
+      "competition_id":"4",
+      "isAccepted":"true"
+    },
+    {
+      "score": "10",
+      "user_id":"2",
+      "competition_id":"3",
+      "isAccepted":"true"
+    },
+    {
+      "score": "22",
+      "user_id":"2",
+      "competition_id":"4",
+      "isAccepted":"false"
+    },
+    {
+      "score": "44",
+      "user_id":"3",
+      "competition_id":"1",
+      "isAccepted":"true"
+    },
+    {
+      "score": "4",
+      "user_id":"3",
+      "competition_id":"2",
+      "isAccepted":"true"
+    },
+    {
+      "score": "9",
+      "user_id":"3",
+      "competition_id":"3",
+      "isAccepted":"true"
+    }
+    
+ 
+
   ]
