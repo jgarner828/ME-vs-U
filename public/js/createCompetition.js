@@ -13,8 +13,6 @@ const createCompetition = async (event) => {
     const isPublic = document.querySelector('#isPublic').value.trim();
 
 
-  
-    const uom = document.querySelector('#uom').value.trim();
     if (title && category && rules &&  start_date && end_date && reward && quantity && uom && isPublic) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/competitions/addcompetition', {
