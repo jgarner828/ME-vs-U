@@ -23,7 +23,7 @@ router.get("/createCompetition", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render("dashboard", {
+    res.render("createCompetition", {
       ...user,
       logged_in: true,
     });
@@ -33,51 +33,6 @@ router.get("/createCompetition", withAuth, async (req, res) => {
 });
 
 
-router.get("/daily-steps", async (req, res) => {
-  try {
-    const scoreboardData = await Scoreboard.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: Competition,
-          attributes: ["title"],
-        },
-      ],
-    });
-
-    const dailysteps = scoreboardData.get({ plain: true });
-
-    res.render("dailysteps", {
-      ...dailysteps,
-      logged_in: req.session.logged_in,
-    });
-    console.log(scoreboardData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/weekly-miles", async (req, res) => {
-  try {
-    const scoreboardData = await Scoreboard.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: Competition,
-          attributes: ["title"],
-        },
-      ],
-    });
-
-    const weeklymiles = scoreboardData.get({ plain: true });
-
-    res.render("weeklymile", {
-      ...weeklymiles,
-      logged_in: req.session.logged_in,
-    });
-    console.log(scoreboardData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {

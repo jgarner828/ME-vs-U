@@ -3,55 +3,176 @@
       "score": "45",
       "user_id":"1",
       "competition_id":"1",
-      "isAccepted":"false"
+      "isAccepted":"false",
+      "isDeclined":"false"
     },
     {
       "score": "4",
       "user_id":"1",
       "competition_id":"2",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
     },
     {
       "score": "34",
       "user_id":"1",
       "competition_id":"3",
-      "isAccepted":"false"
+      "isAccepted":"false",
+      "isDeclined":"false"
     },
     {
       "score": "100",
       "user_id":"1",
       "competition_id":"4",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
     },
     {
       "score": "10",
       "user_id":"2",
       "competition_id":"3",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
     },
     {
       "score": "22",
       "user_id":"2",
       "competition_id":"4",
-      "isAccepted":"false"
+      "isAccepted":"false",
+      "isDeclined":"false"
     },
     {
       "score": "44",
       "user_id":"3",
       "competition_id":"1",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
     },
     {
       "score": "4",
       "user_id":"3",
       "competition_id":"2",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
     },
     {
       "score": "9",
       "user_id":"3",
       "competition_id":"3",
-      "isAccepted":"true"
+      "isAccepted":"true",
+      "isDeclined":"false"
+    },
+    {
+      "score": "9",
+      "user_id":"1",
+      "competition_id":"8",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "10",
+      "user_id":"2",
+      "competition_id":"8",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "11",
+      "user_id":"3",
+      "competition_id":"8",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "15",
+      "user_id":"4",
+      "competition_id":"8",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "9",
+      "user_id":"1",
+      "competition_id":"7",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "10",
+      "user_id":"2",
+      "competition_id":"7",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "11",
+      "user_id":"3",
+      "competition_id":"7",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "15",
+      "user_id":"4",
+      "competition_id":"7",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "9",
+      "user_id":"1",
+      "competition_id":"6",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "10",
+      "user_id":"2",
+      "competition_id":"6",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "11",
+      "user_id":"3",
+      "competition_id":"6",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "15",
+      "user_id":"4",
+      "competition_id":"6",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "9",
+      "user_id":"1",
+      "competition_id":"5",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "10",
+      "user_id":"2",
+      "competition_id":"5",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "11",
+      "user_id":"3",
+      "competition_id":"5",
+      "isAccepted":"false",
+      "isDeclined":"false"
+    },
+    {
+      "score": "15",
+      "user_id":"4",
+      "competition_id":"5",
+      "isAccepted":"false",
+      "isDeclined":"false"
     }
     
  

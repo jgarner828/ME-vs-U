@@ -48,5 +48,53 @@
         "start_date": "2022-02-12 00:00:00",
         "end_date": "2022-02-13 00:00:00",
         "isActive":"false"
+      },
+      {
+        "title": "Melissa's Competition",
+        "category": "fitness",
+        "description": "See how many many workouts you can get in",
+        "reward":"trophy-outline",
+        "quantity": "1",
+        "uom":"workouts",
+        "isPublic": "true",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-16 00:00:00",
+        "isActive":"true"
+      },
+      {
+        "title": "Sarah's Steps",
+        "category": "fitness",
+        "description": "See how you pair up with other users to see who takes the most steps!",
+        "reward":"trophy-outline",
+        "quantity": "1",
+        "uom":"steps",
+        "isPublic": "true",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-14 00:00:00",
+        "isActive":"true"
+      },
+      {
+        "title": "John's Competition",
+        "category": "finance",
+        "description": "See how much money you can save in a day!",
+        "reward":"trophy-outline",
+        "quantity": "1",
+        "uom":"days",
+        "isPublic": "false",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-13 00:00:00",
+        "isActive":"true"
+      },
+      {
+        "title": "Justin's Competition",
+        "category": "finance",
+        "description": "See how much money you can save in a day!",
+        "reward":"trophy-outline",
+        "quantity": "1",
+        "uom":"days",
+        "isPublic": "false",
+        "start_date": "2022-02-12 00:00:00",
+        "end_date": "2022-02-13 00:00:00",
+        "isActive":"true"
       }
   ]
