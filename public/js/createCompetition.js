@@ -7,13 +7,16 @@ const createCompetition = async (event) => {
     const rules = document.querySelector('#rules').value.trim();
     const start_date = document.querySelector('#start_date').value.trim();
     const end_date = document.querySelector('#end_date').value.trim();
-    const reward = document.querySelector('#reward').value.trim();
     const quantity = document.querySelector('#quantity').value.trim();
     const uom = document.querySelector('#uom').value.trim();
-    const isPublic = document.querySelector('#isPublic').value.trim();
+    const isPublic = document.getElementById("ispublic").value;
+    // document.querySelector('#ispublic').value.trim();
+    console.log("THIS IS THE PUBLIC VALUE" + isPublic);
+    console.log("THIS IS THE UOM VALUE" + uom);
+    const reward ='trophy-outline';
 
 
-    if (title && category && rules &&  start_date && end_date && reward && quantity && uom && isPublic) {
+    if (title && category && rules &&  start_date && end_date && reward && quantity && uom) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/competitions/addcompetition', {
         method: 'POST',
@@ -23,7 +26,7 @@ const createCompetition = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the blog posts
-        document.location.replace('/');
+        document.location.replace('/dashboard');
         console.log("successfully created competition");
       } else {
         alert(response.statusText);
@@ -35,6 +38,6 @@ const createCompetition = async (event) => {
 
   
   document
-    .querySelector('#createButton')
-    .addEventListener('click', createCompetition);
+    .querySelector('#competitionform')
+    .addEventListener('submit', createCompetition);
   

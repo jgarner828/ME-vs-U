@@ -14,7 +14,7 @@
     <div class="row">
       {{#each scoreboards as |scoreboards|}}
       {{#if scoreboards.competition.isActive}}
-          {{#if scoreboards.competition.isAccepted}}
+          {{#if scoreboards.isAccepted}}
             <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
          {{/if}}
        {{/if}}
@@ -58,21 +58,25 @@
 
 <br /><br />
 
+<br /><br />
 
-  <div class="container">
+
+  <div id="pending-invites" class="container">
     <h3>Pending Competition Invites</h3>
     <div class="row">
      {{#each scoreboards as |scoreboards|}}
         {{#unless scoreboards.isAccepted}}
+        {{#unless scoreboards.isDeclined}}
         {{#if scoreboards.competition.isActive}}
           <p>{{scoreboards.competition.title}}</p>
             <p>
-              <button class="btn btn-primary">Accept</button>
+              <button data-response="accept" data-id="{{scoreboards.id}}" class="btn btn-primary">Accept</button>
             </p>
             <p>
-              <button class="btn btn-danger">Decline</button>
+              <button data-response="decline" data-id="{{scoreboards.id}}" class="btn btn-danger">Decline</button>
             </p>
             {{/if}}
+        {{/unless}}
         {{/unless}}
       {{/each}}
     </div>
@@ -80,4 +84,4 @@
 
 
 
-  {{!-- <script src="/js/dashboard.js"></script> --}}
+  <script src="/js/dashboard.js"></script>

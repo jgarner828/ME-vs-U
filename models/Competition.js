@@ -59,7 +59,7 @@ Competition.init(
     isActive:{
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false,
+      default: true,
     },
     owner: {
       type: DataTypes.INTEGER,
