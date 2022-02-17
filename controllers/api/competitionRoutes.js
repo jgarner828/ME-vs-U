@@ -48,4 +48,21 @@ router.post("/addcompetition", withAuth, async (req, res) => {
   }
 });
 
+
+router.get('/:id', async (req, res) => {
+  try {
+    const individualCompetition = await Competition.findByPk(req.params.id);
+    if(! individualCompetition){
+      res.status(500).json(`${req.params.id} is not a valid competition`);
+    } else {
+
+      const competition = individualCompetition.get({ plain: true });
+      res.render('displaycompetition', {competition});
+    }
+  } catch (error) {
+    
+  }
+})
+
+
 module.exports = router
