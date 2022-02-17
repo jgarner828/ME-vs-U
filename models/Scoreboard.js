@@ -16,6 +16,11 @@ Scoreboard.init(
       allowNull: false,
       default: 0,
     },
+    isAccepted:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -25,8 +25,6 @@ const seedDatabase = async () => {
   for (const scoreboard of scoreboardData) {
      await Scoreboard.create({
       ...scoreboard,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-      competition_id: competitions[Math.floor(Math.random() * competitions.length)].id,
     });
   }
 

@@ -13,11 +13,13 @@
     <h3>Active Competitions:</h3>
     <div class="row">
       {{#each scoreboards as |scoreboards|}}
-            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition_id}} {{scoreboards.competition.title}}</a></button>
-
-
-
+      {{#if scoreboards.competition.isActive}}
+          {{#if scoreboards.competition.isAccepted}}
+            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
+         {{/if}}
+       {{/if}}
       {{/each}}
+
     </div>
   </div>
 {{/if}}
@@ -30,12 +32,52 @@
     <div class="row">
       {{#each competitions as |competitions|}}
             <a href="/competition/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
-
-
-
       {{/each}}
     </div>
   </div>
 {{/if}}
+
+
+<br /><br />
+
+
+  <div class="container">
+    <h3>Won Competitions</h3>
+    <div class="row">
+     {{#each scoreboards as |scoreboards|}}
+      {{#unless scoreboards.competition.isActive}}
+            {{#if (checkWinner id scoreboards.competition.winner)}}</p>
+            <span class='ion ion-ios-{{scoreboards.competition.reward}}'></span>
+            <p>{{scoreboards.competition.title}}</p>
+          {{/if}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+
+<br /><br />
+
+
+  <div class="container">
+    <h3>Pending Competition Invites</h3>
+    <div class="row">
+     {{#each scoreboards as |scoreboards|}}
+        {{#unless scoreboards.isAccepted}}
+        {{#if scoreboards.competition.isActive}}
+          <p>{{scoreboards.competition.title}}</p>
+            <p>
+              <button class="btn btn-primary">Accept</button>
+            </p>
+            <p>
+              <button class="btn btn-danger">Decline</button>
+            </p>
+            {{/if}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+
 
   {{!-- <script src="/js/dashboard.js"></script> --}}
