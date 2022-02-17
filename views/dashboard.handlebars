@@ -1,1 +1,87 @@
-{{> competitionform }}
+<div class="container">
+  <div class="row">
+    <div class="col-auto">
+      <h2>{{username}}'s Dashboard</h2>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+
+{{#if scoreboards.length}}
+  <div class="container">
+    <h3>Active Competitions:</h3>
+    <div class="row">
+      {{#each scoreboards as |scoreboards|}}
+      {{#if scoreboards.competition.isActive}}
+          {{#if scoreboards.isAccepted}}
+            <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
+         {{/if}}
+       {{/if}}
+      {{/each}}
+
+    </div>
+  </div>
+{{/if}}
+
+<br /><br />
+
+{{#if competitions.length}}
+  <div class="container">
+    <h3>Created Competitions</h3>
+    <div class="row">
+      {{#each competitions as |competitions|}}
+            <a href="/api/competitions/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+
+
+<br /><br />
+
+
+  <div class="container">
+    <h3>Won Competitions</h3>
+    <div class="row">
+     {{#each scoreboards as |scoreboards|}}
+      {{#unless scoreboards.competition.isActive}}
+            {{#if (checkWinner id scoreboards.competition.winner)}}</p>
+            <span class='ion ion-ios-{{scoreboards.competition.reward}}'></span>
+            <p>{{scoreboards.competition.title}}</p>
+          {{/if}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+
+<br /><br />
+
+<br /><br />
+
+
+  <div id="pending-invites" class="container">
+    <h3>Pending Competition Invites</h3>
+    <div class="row">
+     {{#each scoreboards as |scoreboards|}}
+        {{#unless scoreboards.isAccepted}}
+        {{#unless scoreboards.isDeclined}}
+        {{#if scoreboards.competition.isActive}}
+          <p>{{scoreboards.competition.title}}</p>
+            <p>
+              <button data-response="accept" data-id="{{scoreboards.id}}" class="btn btn-primary">Accept</button>
+            </p>
+            <p>
+              <button data-response="decline" data-id="{{scoreboards.id}}" class="btn btn-danger">Decline</button>
+            </p>
+            {{/if}}
+        {{/unless}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+
+
+  <script src="/js/dashboard.js"></script>

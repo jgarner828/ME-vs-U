@@ -10,31 +10,34 @@
       <input id="category" name="category" />
     </div>
     <div>
-      <label class="text-primary" for="description"> Description: </label>
-      <input id="description" name="description" />
+      <label class="text-primary" for="description">Rules: </label>
+      <input id="rules" name="description" />
     </div>
     <div>
-      <label class="text-primary" for="duration">Duration: </label>
-      <input type="number" id="duration" name="duration" />
+     <input placeholder="Start Date"type="date" data-provide="datepicker" id="start_date" name="start-Date" class="form-control datepicker"/>
     </div>
     <div>
-      <label class="text-primary" for="reward">Reward: </label>
-      <input id="reward" name="reward" />
+  <input placeholder="End Date"type="date" data-provide="datepicker" id="end_date" name="start-Date" class="form-control datepicker" />
     </div>
     <div>
-      <label class="text-primary" for="quantity">Quantity: </label>
-      <input type="number" id="quantity" name="quantity" />
+      <label class="text-primary" for="quantity">Increments: </label>
+      <input type="number" id="quantity" name="increment" />
     </div>
     <div>
       <label class="text-primary" for="uom">Unit of Measurement: </label>
       <input id="uom" name="uom" />
     </div>
-    <div>
+       <div>
+      <input type="checkbox" name="ispublic" id="ispublic" value="true"/>
       <label class="text-primary" for="ispublic">Public: </label>
-      <input type="checkbox" id="ispublic" name="ispublic" />
     </div>
     <div>
- <button type="submit" class="btn btn-primary">Create</button>
+    <div>
+      <button
+        id="createButton"
+        type="submit"
+        class="btn btn-primary"
+      >Create</button>
     </div>
   </form>
 </div>

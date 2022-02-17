@@ -1,83 +1,41 @@
 const router = require("express").Router();
+const { json } = require("express/lib/response");
 const { Scoreboard, Competition, User } = require("../models");
+const withAuth = require('../utils/auth');
 
-router.get("/", async (req, res) => {
+// Use withAuth middleware to prevent access to route
+router.get('/', withAuth, async (req, res) => {
   try {
-    res.render("dashboard", {
-      logged_in: req.session.logged_in,
-    });
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+    // Find the logged in user based on the session ID
 
-router.get("/hydration", async (req, res) => {
-  try {
-    const scoreboardData = await Scoreboard.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
       include: [
+
         {
-          model: Competition,
-          attributes: ["title"],
-        },
+            model: Competition,
+            attributes: ['id', 'title', 'start_date', 'end_date', 'winner','owner','isActive'],
+          },
+          {
+            model: Scoreboard,
+            attributes: ['id','user_id','competition_id','isAccepted', 'isDeclined'],
+            include: [{model: Competition, attributes: ['title','winner','isActive','reward']}],
+          },
       ],
     });
 
-    const hydration = scoreboardData.get({ plain: true });
+    const user = userData.get({ plain: true });
+    const newUser=JSON.stringify(user);
+    console.log(newUser);
 
-    res.render("hydration", {
-      ...hydration,
-      logged_in: req.session.logged_in,
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
     });
-    console.log(scoreboardData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/daily-steps", async (req, res) => {
-  try {
-    const scoreboardData = await Scoreboard.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: Competition,
-          attributes: ["title"],
-        },
-      ],
-    });
-
-    const dailysteps = scoreboardData.get({ plain: true });
-
-    res.render("dailysteps", {
-      ...dailysteps,
-      logged_in: req.session.logged_in,
-    });
-    console.log(scoreboardData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get("/weekly-miles", async (req, res) => {
-  try {
-    const scoreboardData = await Scoreboard.findByPk(req.session.user_id, {
-      include: [
-        {
-          model: Competition,
-          attributes: ["title"],
-        },
-      ],
-    });
-
-    const weeklymiles = scoreboardData.get({ plain: true });
-
-    res.render("weeklymile", {
-      ...weeklymiles,
-      logged_in: req.session.logged_in,
-    });
-    console.log(scoreboardData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;
