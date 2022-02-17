@@ -39,6 +39,7 @@ router.post("/addcompetition", withAuth, async (req, res) => {
       uom: req.body.uom,
       isPublic: req.body.isPublic,
       owner: req.session.user_id,
+      isActive:'true'
     });
     res.json(newCompetition);
   } catch (error) {
