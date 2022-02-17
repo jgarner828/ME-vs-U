@@ -15,7 +15,7 @@
       {{#each scoreboards as |scoreboards|}}
       {{#if scoreboards.competition.isActive}}
           {{#if scoreboards.competition.isAccepted}}
-            <a href="/competition/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
+            <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
          {{/if}}
        {{/if}}
       {{/each}}
@@ -31,7 +31,7 @@
     <h3>Created Competitions</h3>
     <div class="row">
       {{#each competitions as |competitions|}}
-            <a href="/competition/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
+            <a href="/api/competitions/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
       {{/each}}
     </div>
   </div>
