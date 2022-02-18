@@ -4,9 +4,12 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage", {
+    if (req.session.logged_in) {
+      res.redirect("/dashboard") }
+
+    else {res.render("homepage", {
       logged_in: req.session.logged_in,
-    });
+    })};
   } catch (error) {
     res.status(500).json(error);
   }
@@ -32,16 +35,14 @@ router.get("/createCompetition", withAuth, async (req, res) => {
   }
 });
 
-router.get("/invitePeople", withAuth, async (req, res) => {
+router.get("/invitepeople", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Competition }],
+    const userData = await User.findAll({
+      attributes: ["id", "username"],
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render("invitePeople", {
       ...user,
       logged_in: true,

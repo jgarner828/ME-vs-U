@@ -1,27 +1,23 @@
 // var end_date = document.getElementById("end_date").innerHTML;
 var end_date = document.querySelectorAll(".end_date");
-let date1 = []
+let date1 = [];
 end_date.forEach((date) => {
   var date2 = date.innerHTML;
-  console.log(date2)
-  date1.push( new Date(date2));
+  console.log(date2);
+  date1.push(new Date(date2));
 });
-console.log(date1)
+console.log(date1);
 
 let milliDate = [];
 date1.forEach((date) => {
-    let date3 = dayjs(date).valueOf();
-    milliDate.push(date3)
-})
-console.log(milliDate)
+  let date3 = dayjs(date).valueOf();
+  milliDate.push(date3);
+});
+console.log(milliDate);
 
 //gets value in milliseconds
 var now = dayjs().valueOf();
-console.log(now)
-
-
-
-
+console.log(now);
 
 //function to get hours, minutes, and seconds passing
 function secondsToHms(seconds) {
