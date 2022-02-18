@@ -106,11 +106,11 @@
     <h3>Active Competitions:</h3>
     <div class="row">
       {{#each scoreboards as |scoreboards|}}
-      {{#if (isActive competitions.end_date competitions.start_date)}}
+      {{!-- {{#if (isActive competitions.end_date competitions.start_date)}} --}}
           {{#if scoreboards.isAccepted}}
             <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
                    <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining</p>
-         {{/if}}
+         {{!-- {{/if}} --}}
        {{/if}}
       {{/each}}
 
@@ -166,7 +166,7 @@
      {{#each scoreboards as |scoreboards|}}
         {{#unless scoreboards.isAccepted}}
         {{#unless scoreboards.isDeclined}}
-        {{#if (isActive competitions.end_date competitions.start_date)}}
+        {{!-- {{#if (isActive competitions.end_date competitions.start_date)}} --}}
           <p>{{scoreboards.competition.title}}</p>
             <p>
               <button data-response="accept" data-id="{{scoreboards.id}}" class="btn btn-primary">Accept</button>
@@ -174,7 +174,7 @@
             <p>
               <button data-response="decline" data-id="{{scoreboards.id}}" class="btn btn-danger">Decline</button>
             </p>
-            {{/if}}
+            {{!-- {{/if}} --}}
         {{/unless}}
         {{/unless}}
       {{/each}}

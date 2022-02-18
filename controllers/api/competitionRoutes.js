@@ -1,4 +1,4 @@
-const { Competition, User } = require("../../models");
+const { Competition, User, Scoreboard } = require("../../models");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 
@@ -48,16 +48,33 @@ router.post("/addcompetition", withAuth, async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
-    const individualCompetition = await Competition.findByPk(req.params.id);
+
+
+    const individualCompetition = await Competition.findByPk(req.params.id, {
+           include:
+              [{
+                model: User,
+                attributes: ['id', 'username'],
+              },
+              {
+                model: Scoreboard,
+                attributes: ['id', 'user_id'],
+              },]
+    });
+
+
     if(! individualCompetition){
       res.status(500).json(`${req.params.id} is not a valid competition`);
     } else {
-
       const competition = individualCompetition.get({ plain: true });
+
+
       res.render('displaycompetition', {competition});
     }
+
+
   } catch (error) {
     
   }
