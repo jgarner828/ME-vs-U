@@ -10,7 +10,7 @@ MeVsU is powered through HTML, CSS, Bootstrap, Javascript, and Node js
 
 Directions for future development:
 
-Website Preivew
+Website Preview
 
 ![HomePage](public/images/ss.png)
 
