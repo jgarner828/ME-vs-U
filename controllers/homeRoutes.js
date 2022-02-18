@@ -5,11 +5,12 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     if (req.session.logged_in) {
-      res.redirect("/dashboard") }
-
-    else {res.render("homepage", {
-      logged_in: req.session.logged_in,
-    })};
+      res.redirect("/dashboard");
+    } else {
+      res.render("homepage", {
+        logged_in: req.session.logged_in,
+      });
+    }
   } catch (error) {
     res.status(500).json(error);
   }
@@ -35,17 +36,17 @@ router.get("/createCompetition", withAuth, async (req, res) => {
   }
 });
 
-router.get("/invitepeople", withAuth, async (req, res) => {
+router.get("/invitePeople", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: ["id", "username"],
-    });
+    // Get all projects and JOIN with user data
+    const usersData = await User.findAll({});
+    // Serialize data so the template can read it
+    const Users = usersData.map((User) => User.get({ plain: true }));
 
-    const user = userData.get({ plain: true });
-    console.log(user);
+    // Pass serialized data and session flag into template
     res.render("invitePeople", {
-      ...user,
-      logged_in: true,
+      Users,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

@@ -32,8 +32,7 @@ const createCompetition = async (event) => {
         alert(response.statusText);
         console.log("unsuccessful created competition");
       }
-    }
-  };
+    };
   
 
   
