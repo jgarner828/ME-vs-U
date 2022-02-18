@@ -1,2 +1,48 @@
-{{> competitionform }}
+<div>
+  <h3 class="text-primary">Create a New Competition:</h3>
+  <form id="competitionform">
+    <div>
+      <label class="text-primary" for="title">Title: </label>
+      <input id="title" name="title" />
+    </div>
+    <div>
+      <label class="text-primary" for="category">Category: </label>
+        <select id="category" name="category">
+        <option value="fitness">Fitness</option>
+        <option value="food">Food</option>
+        <option value="hydration">Hydration</option>
+        <option value="finance">Finance</option>
+        <option value="fun">Just for Fun</option>
+        <option value="other">Other</option>
+        </select>
+    </div>
+    <div>
+      <label class="text-primary" for="description">Rules: </label>
+      <input id="rules" name="description" />
+    </div>
+    <div>
+     <input placeholder="Start Date"type="date" data-provide="datepicker" id="start_date" name="start-Date" class="form-control datepicker"/>
+    </div>
+    <div>
+  <input placeholder="End Date"type="date" data-provide="datepicker" id="end_date" name="start-Date" class="form-control datepicker" />
+    </div>
+    <div>
+      <label class="text-primary" for="quantity">Increments: </label>
+      <input type="number" id="quantity" name="increment" />
+    </div>
+    <div>
+      <label class="text-primary" for="uom">Unit of Measurement: </label>
+      <input id="uom" name="uom" />
+    </div>
+    <div>
+    <div>
+      <button
+        id="createButton"
+        type="submit"
+        class="btn btn-primary"
+      >Create</button>
+    </div>
+  </form>
+</div>
 
+<script src="/js/createCompetition.js"></script>
