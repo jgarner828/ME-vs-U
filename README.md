@@ -12,7 +12,7 @@ Directions for future development:
 
 Website Preivew
 
-![HomePage](/SS.png)
+![HomePage](public/images/ss.png)
 
 Github Link
 https://github.com/jgarner828/ME-vs-U
