@@ -187,10 +187,10 @@
     <div class="share-button sharer" style="display: block;">
     <button type="button" class="btn btn-danger share-btn">Share</button>
     <br/><br/>
-   <form action="/action_page.php">
+ 
   <label for="phone">Update your workouts:</label><br><br>
-  <input type="quantity" id="quantity" name="compeition" placeholder="1-10" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-  <input type="submit"class="btn btn-danger share-btn"></button>
+  <input type="quantity" id="quantity" name="competition" placeholder="1-10"><br><br>
+  <input type="submit" id='{{competition.id}}' class="updateBtn btn btn-danger share-btn"></button>
      <br/><br/>
       
   <small>Competition end date:<p>{{competition.end_date}}</p></small><br><br>
@@ -265,3 +265,5 @@
         </div>
       </div>
 </div>
+
+<script src="/js/displaycompetition.js"></script>
