@@ -37,7 +37,6 @@ router.post("/addcompetition", withAuth, async (req, res) => {
       reward: req.body.reward,
       quantity: req.body.quantity,
       uom: req.body.uom,
-      isPublic: req.body.isPublic,
       owner: req.session.user_id,
       isActive:'true'
     });

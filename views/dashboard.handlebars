@@ -106,9 +106,10 @@
     <h3>Active Competitions:</h3>
     <div class="row">
       {{#each scoreboards as |scoreboards|}}
-      {{#if scoreboards.competition.isActive}}
+      {{#if (isActive competitions.end_date competitions.start_date)}}
           {{#if scoreboards.isAccepted}}
             <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
+                   <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining</p>
          {{/if}}
        {{/if}}
       {{/each}}
@@ -128,7 +129,7 @@
            <a href="/api/competitions/{{competitions.id}}" class="custom-link">{{competitions.title}}</a>
          
             <p class="d-none end_date">{{competitions.end_date }}</p>
-       <p id="time-left">{{competitions.end_date}}</p>
+       <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining</p>
        
       {{/each}}
     </div>
@@ -143,7 +144,7 @@
     <h3>Won Competitions</h3>
     <div class="row">
      {{#each scoreboards as |scoreboards|}}
-      {{#unless scoreboards.competition.isActive}}
+      {{#unless (isActive competitions.end_date competitions.start_date)}}
             {{#if (checkWinner id scoreboards.competition.winner)}}</p>
             <span class='ion ion-ios-{{scoreboards.competition.reward}}'></span>
             <p>{{scoreboards.competition.title}}</p>
@@ -165,7 +166,7 @@
      {{#each scoreboards as |scoreboards|}}
         {{#unless scoreboards.isAccepted}}
         {{#unless scoreboards.isDeclined}}
-        {{#if scoreboards.competition.isActive}}
+        {{#if (isActive competitions.end_date competitions.start_date)}}
           <p>{{scoreboards.competition.title}}</p>
             <p>
               <button data-response="accept" data-id="{{scoreboards.id}}" class="btn btn-primary">Accept</button>
@@ -180,7 +181,5 @@
     </div>
   </div>
 
-
-<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-  {{!-- <script src="/js/determineTime.js"></script> --}}
+ 
   <script src="/js/dashboard.js"></script>
