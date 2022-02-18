@@ -8,19 +8,14 @@ As a competitive person I want to create, compete and invite friends into compet
 Technologies Used
 MeVsU is powered through HTML, CSS, Bootstrap, Javascript, and Node js
 
-Directions for future development
-login feature: User will be able to create an account to manage their MyAnime.com content. In addition, we would like to use Meetups API to connect our users and form a community.
+Directions for future development:
 
-Voting feature: Users can give a thumbs up or downvote anime content and create a "favorites" list.
+Website Preview
 
-When participants enter their email in the "Let's be Friends" section, they will automatically be enrolled in our monthly newsletter.
+![HomePage](public/images/ss.png)
 
-Website Preivew
-
-![HomePage](/SS_HomePage.png)
-
-Deployed Site
-https://sarahlabrotlientz.github.io/MyAnime/
+Github Link
+https://github.com/jgarner828/ME-vs-U
 
 Credits
 mel-ificent(Melissa Donato): Backend
