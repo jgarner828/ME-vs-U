@@ -183,14 +183,25 @@
     <h1>{{competition.title}}</h1>
     <p>{{competition.category}}</p>
     <p>{{competition.description}}</p>
+
   
     <div class="share-button sharer" style="display: block;">
     <button type="button" class="btn btn-danger share-btn">Share</button>
     <br/><br/>
  
-  <label for="phone">Update your workouts:</label><br><br>
+  {{!-- <label for="phone">Update your workouts:</label><br><br>
   <input type="quantity" id="quantity" name="competition" placeholder="1-10"><br><br>
-  <input type="submit" id='{{competition.id}}' class="updateBtn btn btn-danger share-btn"></button>
+  <input type="submit" id='{{competition.id}}' class="updateBtn btn btn-danger share-btn"></button> --}}
+ {{#each scoreboards as |scoreboards|}}
+ {{#if (userScore scoreboards.user_id user.id)}}
+  <button type="button" class="btn btn-danger update-btn" data-quantity="{{competition.quantity}}" data-scoreboard="{{this.scoreboards.id}}">Submit {{competition.quantity}} {{competition.uom}}</button>
+ {{/if}}
+ {{/each}}
+
+<p>{{scoreboards.user_id}}</p>
+<p>{{user.id}}</p>
+
+
      <br/><br/>
       
   <small>Competition end date:<p>{{competition.end_date}}</p></small><br><br>

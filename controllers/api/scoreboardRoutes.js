@@ -41,12 +41,15 @@ competitionId = splitForId[0];
 const { updateValue } = req.body;
 
 const updateScore = await Scoreboard.update(
-  { score: sequelize.literal(`score + ${updateValue}`) },
-   { where: {
+  { 
+    score: sequelize.literal(`score + ${updateValue}`),
+  },
+   {
+     where: {
           user: `${user_id}`,
           competition_id: `${competitionId}`,
           }
-  })
+  });
 
   if(!updateScore) {
     res.status(500).json('Error updating score')

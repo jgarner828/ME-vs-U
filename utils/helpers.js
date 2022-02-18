@@ -27,5 +27,14 @@ module.exports = {
            else{ return true;
            };
        },
+    userScore:(var1, var2) => {
+        if (var1 === var2) {
+            return true;
+        } else {
+            return false;
+        }
+       },
+
+    
 
   };
