@@ -6,17 +6,7 @@ User Story
 As a competitive person I want to create, compete and invite friends into competitions.
 
 Technologies Used
-MyAnime is powered through HTML, CSS, Bulma, Giphy, Javascript and jQuery
-
-Powered by not 1 but 3 APIs :
-
-Fact generator: https://chandan-02.github.io/anime-facts-rest-api/
-
-Anime New and Previous releases: https://www.animenewsnetwork.com/encyclopedia/api.php
-
-Discover: https://anilist.gitbook.io/anilist-apiv2-docs/
-
-Bulma as our sleek CSS Framework
+MeVsU is powered through HTML, CSS, Bootstrap, Javascript, and Node js
 
 Directions for future development
 login feature: User will be able to create an account to manage their MyAnime.com content. In addition, we would like to use Meetups API to connect our users and form a community.
@@ -33,11 +23,13 @@ Deployed Site
 https://sarahlabrotlientz.github.io/MyAnime/
 
 Credits
-mkang987(Alex Kang): News Page and parts of the Trivia Page Javascript
+mel-ificent(Melissa Donato): Backend
 
-JudeCollins(Jude Collins): Discovery Page (very comprehensive)
+jgarner828(Justin Garner): Backend
 
-SarahLabrotLientz(Sarah Labrot): Home Page and Trivia Page
+John45p(John Quintanilla): Backend
+
+SarahLabrotLientz(Sarah Labrot): Frontend Web Design
 
 Google Slide Deck
-https://docs.google.com/presentation/d/1h8fH69esS2SOFnCQ7CKBH1qNZLgwyspziu3Q_dfV_3Q/edit?usp=sharing
+https://docs.google.com/presentation/d/1WbTrxoJbvujOxdYYauZilv8VKydQMiPmqo8DaeFDHvw/edit#slide=id.g1135d2bb876_0_116
