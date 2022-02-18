@@ -67,18 +67,19 @@ router.get('/adduser', (req, res) => {
   }
 })
 
-router.post('/adduser', (req, res) => {
 
-
-
-  res.status(200).json(req.body)
-try {
-  const { username, email, password } = req.body
-} catch (error) {
-  res.status(500).json(error)
-  
-}
-
-})
+router.post("/adduser",  async (req, res) => {
+  try {
+    const newUser = await User.create({
+      username: req.body.newUsername,
+      email: req.body.newEmail,
+      password: req.body.newPassword,
+    });
+    res.json(newUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+});
 
 module.exports = router;
