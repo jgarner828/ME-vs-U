@@ -6,7 +6,6 @@
       "reward":"trophy-outline",
       "quantity": "90",
       "uom":"ounces",
-      "isPublic": "false",
       "start_date": "2022-02-20 00:00:00",
       "end_date": "2022-02-25 00:00:00",
       "isActive":"true"
@@ -18,7 +17,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"workouts",
-        "isPublic": "true",
         "start_date": "2022-02-23 00:00:00",
         "end_date": "2022-02-25 00:00:00",
         "isActive":"true"
@@ -31,7 +29,6 @@
         "quantity": "1",
         "uom":"steps",
         "winner":1,
-        "isPublic": "true",
         "start_date": "2022-02-20 00:00:00",
         "end_date": "2022-02-25 00:00:00",
         "isActive":"false"
@@ -43,7 +40,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"days",
-        "isPublic": "false",
         "winner":1,
         "start_date": "2022-02-22 00:00:00",
         "end_date": "2022-02-27 00:00:00",
@@ -56,7 +52,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"workouts",
-        "isPublic": "true",
         "start_date": "2022-02-21 00:00:00",
         "end_date": "2022-02-28 00:00:00",
         "isActive":"true"
@@ -68,7 +63,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"steps",
-        "isPublic": "true",
         "start_date": "2022-02-25 00:00:00",
         "end_date": "2022-02-26 00:00:00",
         "isActive":"true"
@@ -80,7 +74,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"days",
-        "isPublic": "false",
         "start_date": "2022-02-19 00:00:00",
         "end_date": "2022-02-24 00:00:00",
         "isActive":"true"
@@ -92,7 +85,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"days",
-        "isPublic": "false",
         "start_date": "2022-02-18 00:00:00",
         "end_date": "2022-02-22 00:00:00",
         "isActive":"true"

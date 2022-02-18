@@ -9,10 +9,6 @@ const createCompetition = async (event) => {
     const end_date = document.querySelector('#end_date').value.trim();
     const quantity = document.querySelector('#quantity').value.trim();
     const uom = document.querySelector('#uom').value.trim();
-    const isPublic = document.getElementById("ispublic").value;
-    // document.querySelector('#ispublic').value.trim();
-    console.log("THIS IS THE PUBLIC VALUE" + isPublic);
-    console.log("THIS IS THE UOM VALUE" + uom);
     const reward ='trophy-outline';
 
 
@@ -20,7 +16,7 @@ const createCompetition = async (event) => {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/competitions/addcompetition', {
         method: 'POST',
-        body: JSON.stringify({ title, category, rules, start_date, end_date, reward, quantity, uom, isPublic }),
+        body: JSON.stringify({ title, category, rules, start_date, end_date, reward, quantity, uom }),
         headers: { 'Content-Type': 'application/json' },
       });
   

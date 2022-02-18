@@ -51,11 +51,6 @@ Competition.init(
     winner: {
       type: DataTypes.INTEGER,
     },
-    isPublic: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      default: true,
-    },
     isActive:{
       type: DataTypes.BOOLEAN,
       allowNull: false,
