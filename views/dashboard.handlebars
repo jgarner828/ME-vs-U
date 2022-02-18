@@ -32,7 +32,12 @@
     <h3>Created Competitions</h3>
     <div class="row">
       {{#each competitions as |competitions|}}
-            <a href="/api/competitions/{{competitions.id}}" class="custom-link">{{competitions.title}}</a></button>
+ 
+           <a href="/api/competitions/{{competitions.id}}" class="custom-link">{{competitions.title}}</a>
+         
+            <p class="d-none end_date">{{competitions.end_date }}</p>
+       <p id="time-left">{{timeLeft competitions.end_date}}</p>
+       
       {{/each}}
     </div>
   </div>
@@ -84,5 +89,6 @@
   </div>
 
 
-
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="/js/determineTime.js"></script>
   <script src="/js/dashboard.js"></script>
