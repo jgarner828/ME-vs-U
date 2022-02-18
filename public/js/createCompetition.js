@@ -26,7 +26,7 @@ const createCompetition = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the blog posts
-        document.location.replace('/dashboard');
+        document.location.replace('/invitePeople');
         console.log("successfully created competition");
       } else {
         alert(response.statusText);
