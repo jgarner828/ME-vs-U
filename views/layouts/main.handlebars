@@ -25,6 +25,7 @@
     background-position: center top;
   }
 </style>
+<body data-spy="scroll" data-target="#navbar1" data-offset="60">
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-danger" id="navbar1">
     <div class="container">
       <a class="navbar-brand mr-1 mb-1 mt-0" href="../">Me vs U</a>
@@ -44,7 +45,7 @@
             <a class="nav-link" href="/createCompetition">Create a Competition</a>
           </li>
           <li class="nav-item"> 
-            <button id="logout">Logout</button>
+            <a class="nav-link" id="logout" href="/createCompetition">Logout</a>
           </li>
         </ul>
       </div>
@@ -54,12 +55,12 @@
 
     {{/if}}
   </nav>
-<body data-spy="scroll" data-target="#navbar1" data-offset="60">
+
   <header class="bg-secondary">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-12">
-          <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
+          <div class="text-center m-0 d-flex flex-column justify-content-center">
             {{{body}}}
   <main>
    
