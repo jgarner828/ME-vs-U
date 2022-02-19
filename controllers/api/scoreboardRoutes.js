@@ -62,9 +62,37 @@ const updateScore = await Scoreboard.update(
 } catch (error) {
   res.status(500).json(error)
 }
-
-
-
 });
+
+//Get Scoreboard
+router.get('/:id', withAuth, async (req, res) => {
+  console.log('competition id'+ req.params.competition_id);
+  try {
+    const scores = await Scoreboard.findByPk(req.params.id);
+      // where: {
+      //   user_id: 1,
+      //   competition_id: req.params.competition_id
+      // }
+    // });
+
+
+    if(!scores){
+      res.status(500).json(`Not a valid request`);
+    } else {
+      const newScore = scores.get({ plain: true });
+      const newcomp=JSON.stringify(newScore);
+      console.log('this is my console log '+ newcomp);
+
+
+      res.render('displaycompetition', {competition});
+    };
+
+
+  } catch (error) {
+    
+  };
+});
+
+
   
-  module.exports = router
+module.exports = router;
