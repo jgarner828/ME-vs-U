@@ -1,4 +1,4 @@
-const { Scoreboard, Competition } = require("../../models");
+const { Scoreboard, Competition, User } = require("../../models");
 const { sequelize } = require("../../models/User");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
@@ -102,8 +102,17 @@ router.post('/add', async (req, res) => {
     console.log(username)
     console.log(competition_id)
 
+    const users = await User.findAll({
+      where: {
+        username: username,
+      },
+    });
+
+    const userInfo = users.map((user) => user.get({ plain: true }));
+
+
     const addUsertoComp = await Scoreboard.create({
-      user_id: user_id,
+      user_id: userInfo[0].id,
       competition_id: competition_id,
     });
 
