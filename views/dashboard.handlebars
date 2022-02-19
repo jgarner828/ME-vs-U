@@ -7,115 +7,6 @@
 </div>
 <br />
 <section class="gradient-custom">
-<<<<<<< HEAD
-                <div class="container py-9 h-100">
-                  <div
-                    class="row d-flex justify-content-center align-items-center h-100"
-                  >
-                    <div
-                      class="card bg-dark text-black"
-                      style="border-radius: 1rem"
-                    >
-                      <div class="card-body p-5 text-center">
-                        <div class="card h-100">
-                          <div
-                            class="card-body d-flex flex-column justify-content-center align-items-center"
-                          >
-                            <h1 class="display-2 text-danger">
-                              <span class="ion ion-ios-water-outline"></span>
-                            </h1>
-                            <h4 class="card-title text-danger">Hydration</h4>
-                            <p class="card-text">
-                              Let's make drinking water fun. Click here to start
-                              the competition.
-                            </p>
-                            <a href="#" class="btn btn-danger mt-auto">Play</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section class="gradient-custom">
-                <div class="container py-1">
-                  <div
-                    class="row d-flex justify-content-center align-items-center"
-                  >
-                    <div
-                      class="card bg-dark text-black"
-                      style="border-radius: 1rem"
-                    >
-                      <div class="card-body p-5 text-center">
-                        <div class="card h-100">
-                          <div
-                            class="card-body d-flex flex-column justify-content-end align-items-center"
-                          >
-                            <h1 class="display-2 text-danger">
-                              <span class="ion ion-ios-walk-outline"></span>
-                            </h1>
-                            <h4 class="card-title text-danger">Fitness</h4>
-                            <p class="card-text">
-                              Get motivated and moving with our awesome fitness
-                              competitions.
-                            </p>
-                            <a href="#" class="btn btn-danger mt-auto">Play</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="gradient-custom">
-                <div class="container py-1">
-                  <div
-                    class="row d-flex justify-content-center align-items-center"
-                  >
-                    <div
-                      class="card bg-dark text-black"
-                      style="border-radius: 1rem"
-                    >
-                      <div class="card-body p-5 text-center">
-                        <div class="card h-100">
-                          <div
-                            class="card-body d-flex flex-column justify-content-end align-items-center"
-                          >
-                            <h1 class="display-2 text-danger">
-                              <span class="ion ion-ios-walk-outline"></span>
-                            </h1>
-                            <h4 class="card-title text-danger">Fitness</h4>
-                            <p class="card-text">
-                              Get motivated and moving with our awesome fitness
-                              competitions.
-                            </p>
-                            <a href="#" class="btn btn-danger mt-auto">Play</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-
-<br /><br />
-
-{{#if scoreboards.length}}
-  <div class="container">
-    <h3>Active Competitions:</h3>
-    <div class="row">
-      {{#each scoreboards as |scoreboards|}}
-      {{#if (isActive competitions.end_date competitions.start_date)}}
-          {{#if scoreboards.isAccepted}}
-            <a href="/api/competitions/{{scoreboards.competition_id}}" class="custom-link">{{scoreboards.competition.title}}</a></button>
-                   <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining</p>
-         {{/if}}
-       {{/if}}
-      {{/each}}
-
-=======
   <div class="container py-9 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="w-75">
@@ -156,7 +47,6 @@
           </div>
         </div>
       </div>
->>>>>>> 6e5538be380c2725afa0cba11ccb3b578222dff2
     </div>
   </div>
 </section>
@@ -287,28 +177,5 @@
 
 
 
-<<<<<<< HEAD
-  <div id="pending-invites" class="container">
-    <h3>Pending Competition Invites</h3>
-    <div class="row">
-     {{#each scoreboards as |scoreboards|}}
-        {{#unless scoreboards.isAccepted}}
-        {{#unless scoreboards.isDeclined}}
-        {{#if (isActive competitions.end_date competitions.start_date)}}
-          <p>{{scoreboards.competition.title}}</p>
-            <p>
-              <button data-response="accept" data-id="{{scoreboards.id}}" class="btn btn-primary">Accept</button>
-            </p>
-            <p>
-              <button data-response="decline" data-id="{{scoreboards.id}}" class="btn btn-danger">Decline</button>
-            </p>
-            {{/if}}
-        {{/unless}}
-        {{/unless}}
-      {{/each}}
-    </div>
-  </div>
-=======
->>>>>>> 6e5538be380c2725afa0cba11ccb3b578222dff2
 
 <script src="/js/dashboard.js"></script>
