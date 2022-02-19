@@ -1,4 +1,8 @@
-<div>
+ <div>
+   <br>
+   <br>
+   <br>
+   <br>
   <h3>Invite People to your Competition!</h3>
 
   <div class="dropdown">
@@ -6,9 +10,9 @@
     See user list
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#"></a>
-    <a class="dropdown-item" href="#"></a>
-    <a class="dropdown-item" href="#"></a>
+    {{#each usernames}}
+    <a class="dropdown-item" id='{{this}}' href="#">{{this}}</a>
+    {{/each}}
   </div> <br>
   <br>
  
@@ -18,5 +22,12 @@
         type="submit"
         class="btn btn-primary"
       >Start Competing</button>
-   
-<script src="/js/invitePeople.js"></script>
+
+
+
+
+
+<script src="/js/invitePeople.js"></script> --}}
+
+
+<p>This is the invitePeople</p>
