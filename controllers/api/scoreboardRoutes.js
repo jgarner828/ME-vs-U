@@ -3,6 +3,29 @@ const { sequelize } = require("../../models/User");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 
+router.put('/updatescore', async (req, res) => {
+  try {
+
+    const scoreboard = await Scoreboard.increment('score', { by: req.body.quantity, where: { competition_id: req.body.competition_id, user_id: req.session.user_id,}});
+    
+    // Scoreboard.update(
+    //   {
+    //     score: sequelize.literal(score + req.body.quantity),
+    //   },
+    //    { where: {
+    //       competition_id: req.body.competition_id,
+    //       user_id: req.session.user_id,
+    //     },
+    //   },
+    // );
+    //res.status(200).json(scoreboard);
+    console.log(scoreboard);
+        res.json(scoreboard);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.put('/:id', withAuth, async (req, res) => {
   
   try {
@@ -25,25 +48,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 
-router.put('/updatescore', withAuth, async (req, res) => {
-  
-  try {
-console.log(req.body.quantity);
-    const scoreboard = await Scoreboard.update(
-      {
-        score: req.body.quantity,
-      },
-       { where: {
-          competition_id: req.body.competition_id,
-          // user_id: req.session.user_id,
-        },
-      },
-    );
-    res.status(200).json(scoreboard);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
 
 
 //Get Scoreboard
@@ -63,7 +68,6 @@ router.get('/:id', withAuth, async (req, res) => {
     } else {
       const newScore = scores.get({ plain: true });
       const newcomp=JSON.stringify(newScore);
-      console.log('this is my console log '+ newcomp);
 
 
       res.render('displaycompetition', {competition});
@@ -107,6 +111,6 @@ router.post('/add', async (req, res) => {
   } catch (error) {
     res.status(500).json(error)
   }
-})
+});
   
 module.exports = router;

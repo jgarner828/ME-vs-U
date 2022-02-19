@@ -12,6 +12,7 @@ let userScores =[];
 let users = [];
 
 
+
 const init = function() {
 
 
@@ -60,7 +61,7 @@ for(i=0; i<users.length;i++){
 };
 
 isActive();
-
+console.log(isActive());
 
 };
 
@@ -106,14 +107,15 @@ const updateCompetition = async function() {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/scoreboard/updatescore', {
           method: 'PUT',
-          body: JSON.stringify({quantity, competition_id }),
+          body: JSON.stringify({quantity, competition_id}),
           headers: { 'Content-Type': 'application/json' },
         });
     
         if (response.ok) {
           // If successful, redirect the browser to the blog posts
-          //document.location.replace(`/api/competitions/${competition_id}`);
+          document.location.replace(`/api/competitions/${competition_id}`);
           console.log("successful update");
+          document.location.replace(`/api/competitions/${competition_id}`);
         } else {
           alert(response.statusText);
           console.log("unsuccessful update");

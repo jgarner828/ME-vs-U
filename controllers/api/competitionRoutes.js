@@ -79,7 +79,7 @@ router.get('/:id', withAuth, async (req, res) => {
     } else {
       const competition = individualCompetition.get({ plain: true });
       const newcomp=JSON.stringify(competition);
-      console.log('this is my console log '+ newcomp);
+
 
 
       res.render('displaycompetition', {competition});
