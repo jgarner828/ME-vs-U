@@ -19,7 +19,7 @@ function init() {
     env: "node", // define the environment CFonts is being executed in
   });
 
-  main();
+  // main();
 }
 init();
 
