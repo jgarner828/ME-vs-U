@@ -40,8 +40,9 @@ const createCompetition = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/invitePeople");
-      console.log("successfully created competition");
+
+      document.location.replace(`${response.url}`);
+
     } else {
       alert(response.statusText);
       console.log("unsuccessful created competition");

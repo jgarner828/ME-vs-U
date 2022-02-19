@@ -45,8 +45,8 @@ router.post("/addcompetition", withAuth, async (req, res) => {
     if(!newCompetition) {
       res.status(500).json('Error creating competition')
     } else {
-      console.log('supposed to render invitePeople')
-      res.redirect('/');
+
+      res.redirect(`/invitePeople/${newCompetition.id}`);
     }
 
 
