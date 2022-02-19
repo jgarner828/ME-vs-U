@@ -28,7 +28,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"steps",
-        "winner":1,
         "start_date": "2022-02-20 00:00:00",
         "end_date": "2022-02-25 00:00:00",
         "isActive":"false"
@@ -40,7 +39,6 @@
         "reward":"trophy-outline",
         "quantity": "1",
         "uom":"days",
-        "winner":1,
         "start_date": "2022-02-22 00:00:00",
         "end_date": "2022-02-27 00:00:00",
         "isActive":"false"
@@ -86,7 +84,7 @@
         "quantity": "1",
         "uom":"days",
         "start_date": "2022-02-18 00:00:00",
-        "end_date": "2022-02-22 00:00:00",
+        "end_date": "2022-02-18 00:00:00",
         "isActive":"true"
       }
   ]

@@ -49,7 +49,7 @@ Competition.init(
       allowNull: false,
     },
     winner: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     isActive:{
       type: DataTypes.BOOLEAN,

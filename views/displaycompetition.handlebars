@@ -10,12 +10,13 @@
 <br><br>
 <br><br>
 <br><br>
-<h1 data-competition_id="{{competition.id}}">{{competition.title}}</h1>
+
+<h1 id="comp_id" data-competition_id="{{competition.id}}">{{competition.title}}</h1>
 <h4>{{competition.description}}</h4>
-<h4>Competition end date:</h4>
+<h4 id="timeRemaining" data-time= "{{timeRemaining competition.end_date competition.start_date}}">Competition end date:</h4>
 <p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p>
 
-<p class="category">{{competition.category}}</p>
+<p class="category">Competition Category: {{competition.category}}</p>
 <section class="gradient-custom">
   <div class="container py-1">
     <div class="row d-flex justify-content-center align-items-center">
@@ -37,22 +38,8 @@
                       <th scope="col">Score</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>@melificent</td>
-                      <td>32</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>@jmac</td>
-                      <td>22</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>@slabrot</td>
-                      <td>16</td>
-                    </tr>
+                  <tbody id="scoreboard">
+
                   </tbody>
                 </table>
 
@@ -62,7 +49,9 @@
                   <tbody>
                     <tr>
 
-                      <th type="username" id="winner" placeholder="WINNER"></th>
+                      <th type="username" placeholder="WINNER">
+                        <td id="winner"></td>
+                      </th>
 
 
                     </tr>
@@ -88,27 +77,22 @@
 
 
     {{!-- Melissa work in progress --}}
-    {{#if (userScore scoreboards.user_id user.id)}}
+
+    {{#if (timeRemaining competition.end_date competition.start_date)}}
     <button type="button" class="btn btn-danger" id="update-btn" data-quantity="{{competition.quantity}}"
       data-scoreboard="{{scoreboards.id}}">Update score with {{competition.quantity}} {{competition.uom}}</button>
     {{/if}}
 
 
+{{!-- Behind the scenes variables --}}
     <div id="score-list">
       {{#each competition.scoreboards}}
       <div data-userid="{{this.user.username}}" data-score="{{this.score}}"></div>
       {{/each}}
     </div>
-    <ol id="scoreboard">
-    </ol>
-
-    <div id="winner"></div>
 
 
 
-    {{!-- End --}}
 
-
-  </div>
 
   <script src="/js/displaycompetition.js"></script>

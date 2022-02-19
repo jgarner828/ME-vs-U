@@ -89,7 +89,28 @@ router.get('/:id', withAuth, async (req, res) => {
   } catch (error) {
     
   }
-})
+});
 
+
+//Update competition winner
+router.put('/winner/:id', withAuth, async (req, res) => {
+  
+  try {
+    const competition = await Competition.update(
+      {
+        winner: req.body.winner,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    res.status(200).json(competition);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router

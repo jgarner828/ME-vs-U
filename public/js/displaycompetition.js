@@ -1,10 +1,10 @@
-// const { isActive } = require("../../utils/helpers");
+ //const { isActive } = require("../../utils/helpers");
 
 // const { init } = require("../../models/User");
 let scoreList = document.getElementById('score-list');
-const end_date = document.getAttribute('data-end_date');
-const start_date = document.getAttribute('data-start_date');
-const competition_id = document.getAttribute('data-competition_id');
+let timeRemaining = document.getElementById('timeRemaining');
+let comp_id = document.getElementById('comp_id');
+let competition_id= comp_id.getAttribute('data-competition_id');
 let userScores =[];
 let users = [];
 
@@ -12,53 +12,59 @@ let users = [];
 const init = function() {
 
 
-for(let i=0; i<scoreList.children.length;i++){
- let x = i-1;
-  if(i==0){
-    userScores.push(scoreList.children[i].getAttribute('data-score'));
-    users.push(scoreList.children[i].getAttribute('data-userid'));
+for(i=0; i<scoreList.children.length;i++){
+  userScores.push(scoreList.children[i].getAttribute('data-score'));
+  users.push(scoreList.children[i].getAttribute('data-userid'));
 
+};
+
+for(i=1; i<users.length;i++){
+
+  for(x=0; x<i; x++){
+  if(parseInt(userScores[i])>parseInt(userScores[x])){
+    let value1=userScores[x];
+    let value2=userScores[i];
+    let value3=users[x];
+    let value4=users[i];
+    userScores[x]=value2;
+    userScores[i]=value1;
+    users[x]=value4;
+    users[i]=value3;
   }
-  else if(scoreList.children[i].getAttribute('data-score')>userScores[x]){
-    userScores.push(userScores[x]);
-    users.push(users[x]);
-    userScores[x]=scoreList.children[i].getAttribute('data-score');
-    users[x]=scoreList.children[i].getAttribute('data-userid');
-  }
-  else if(scoreList.children[i].getAttribute('data-score')<userScores[x]) {
-    userScores.push(scoreList.children[i].getAttribute('data-score'));
-    users.push(scoreList.children[i].getAttribute('data-userid'));
-  }
-  else{
-    return;
-  }
+};
 };
 
 for(i=0; i<users.length;i++){
-  let li = document.createElement("li");
+  let row =  document.createElement("tr");
+  let th = document.createElement("th");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
 
   let userID = users[i];
   let score = userScores[i];
-  console.log(score);
 
+  row.setAttribute('scope','row');
+  th.innerHTML = i+1;
+  td1.innerHTML = `${userID}`;
+  td2.innerHTML = `${score}`;
 
-  var scoreText = document.createElement('p'); 
-  scoreText.innerHTML = `${userID} has a score of ${score}`;
+  row.appendChild(th);
+  row.appendChild(td1);
+  row.appendChild(td2);
 
-  li.appendChild(scoreText);
-  document.getElementById('scoreboard').appendChild(li);
+  document.getElementById('scoreboard').appendChild(row);
 
 };
 
 isActive();
-
+console.log(isActive());
 
 };
 
 const isActive = function() {
-  let timeRemaining = (end_date - start_date)/86400000;
+  timeLeft = timeRemaining.getAttribute('data-time');
      
-  if(isNaN(timeRemaining)){
+  if(timeLeft==0){
     updateWinner();  
     return false;
      
@@ -68,9 +74,10 @@ const isActive = function() {
 
 };
 
-const updateWinner = function() {
-let winner = users[0];
-  const response = await fetch(`/api/competition/winner/${competition_id}`, {
+const updateWinner = async function() {
+const winner = users[0];
+console.log(winner);
+  const response = await fetch(`/api/competitions/winner/${competition_id}`, {
     method: 'PUT',
     body: JSON.stringify({winner}),
     headers: {
@@ -78,6 +85,10 @@ let winner = users[0];
     },
 });
 if (response.ok) {
+
+  let td = document.getElementById("winner");
+  td.innerHTML = `${winner}`;
+
     return;
   } else {
     alert('Failed to update competition');
