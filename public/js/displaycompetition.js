@@ -1,6 +1,10 @@
+// const { isActive } = require("../../utils/helpers");
+
 // const { init } = require("../../models/User");
 let scoreList = document.getElementById('score-list');
-//let scoreboard = document.getElementById('scorboard');
+const end_date = document.getAttribute('data-end_date');
+const start_date = document.getAttribute('data-start_date');
+const competition_id = document.getAttribute('data-competition_id');
 let userScores =[];
 let users = [];
 
@@ -29,8 +33,7 @@ for(let i=0; i<scoreList.children.length;i++){
     return;
   }
 };
-console.log(users);
-console.log(userScores);
+
 for(i=0; i<users.length;i++){
   let li = document.createElement("li");
 
@@ -47,7 +50,38 @@ for(i=0; i<users.length;i++){
 
 };
 
+isActive();
 
+
+};
+
+const isActive = function() {
+  let timeRemaining = (end_date - start_date)/86400000;
+     
+  if(isNaN(timeRemaining)){
+    updateWinner();  
+    return false;
+     
+  }
+  else{ return true;
+  };
+
+};
+
+const updateWinner = function() {
+let winner = users[0];
+  const response = await fetch(`/api/competition/winner/${competition_id}`, {
+    method: 'PUT',
+    body: JSON.stringify({winner}),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+});
+if (response.ok) {
+    return;
+  } else {
+    alert('Failed to update competition');
+  };
 
 };
 
@@ -56,8 +90,7 @@ const updateCompetition = async function() {
   const quantity = document.getAttribute('data-quantity');
   const scoreboardId = document.getAttribute('data-scoreboard');
 
-  console.log(quantity);
-  console.log(scoreboardId);
+
 
     // if (updateValue) {
     //     // Send a POST request to the API endpoint
