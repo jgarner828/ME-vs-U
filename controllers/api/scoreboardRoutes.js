@@ -64,6 +64,7 @@ const updateScore = await Scoreboard.update(
 }
 });
 
+
 //Get Scoreboard
 router.get('/:id', withAuth, async (req, res) => {
   console.log('competition id'+ req.params.competition_id);
