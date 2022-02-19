@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require("../../utils/auth");
 
 router.post('/', async (req, res) => {
   try {
@@ -82,25 +83,19 @@ try {
 })
 
 
-router.get('/all', async (req, res) => {
+router.get('/all', withAuth, async (req, res) => {
 
   try {
     let allUsers = await User.findAll({exclude: ['password']});
 
 
-    let usersArray = await allUsers.map( (element) => {
-        return element.username
+    let usernames = await allUsers.map( (element) => {
+    return element.username
     });
 
-    let userIdArray = await allUsers.map( (element) => {
-        return element.id
-    });
+    console.log(usernames)
 
-    var newOrderObject = userIdArray.reduce(function(acc, item, i) {
-      return Object.assign(acc, { [item]: usersArray[i] })
-    }, {});
-    
-    res.status(200).json(newOrderObject);
+    res.render('invitePeople', {usernames});
 
   } catch (error) {
     res.status(500).json(error);
