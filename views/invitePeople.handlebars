@@ -4,16 +4,16 @@
    <br>
    <br>
   <h3>Invite People to your Competition!</h3>
-
+<br>
   <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     See user list
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     {{#each usernames}}
-    <a class="dropdown-item" id='{{this}}' href="#">{{this}}</a>
-    {{/each}}
+       <a value="" id="user1" class="dropdown-item" href="{{usernames.id}}">{{usernames}}</a>
   </div> <br>
+  {{/each}}
   <br>
  
 </div>
@@ -27,7 +27,4 @@
 
 
 
-<script src="/js/invitePeople.js"></script> --}}
-
-
-<p>This is the invitePeople</p>
+<script src="/js/invitePeople.js"></script> 

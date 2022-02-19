@@ -102,7 +102,6 @@ const updateCompetition = async function() {
   const scoreboardId = document.getAttribute('data-scoreboard');
 
 
-
     // if (updateValue) {
     //     // Send a POST request to the API endpoint
     //     const response = await fetch('/api/scoreboard/updatescore', {

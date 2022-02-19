@@ -35,17 +35,20 @@ router.get("/createCompetition", withAuth, async (req, res) => {
   }
 });
 
-router.get("/invitepeople", withAuth, async (req, res) => {
+
+router.get("/invitePeople", async (req, res) => {
   try {
-    const userData = await User.findAll({
+    // Get all projects and JOIN with user data
+    const usersData = await User.findAll({
       attributes: ["id", "username"],
     });
+    // Serialize data so the template can read it
+    const Users = usersData.map((User) => User.get({ plain: true }));
 
-    const user = userData.get({ plain: true });
-    console.log(user);
+    // Pass serialized data and session flag into template
     res.render("invitePeople", {
-      ...user,
-      logged_in: true,
+      Users,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
