@@ -1,5 +1,3 @@
-
-
 const getUsers = async function() {
     
 fetch('/api/users/all')
@@ -8,3 +6,6 @@ fetch('/api/users/all')
       console.log(data);
   });
 }
+
+
+
