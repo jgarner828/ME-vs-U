@@ -180,42 +180,35 @@
 
 <div>
 
-
+{{!-- start --}}
   
     <div class="share-button sharer" style="display: block;">
-    <h1>{{competition.title}}</h1>
+    <h1 data-competition_id="{{competition.id}}">{{competition.title}}</h1>
     <p>{{competition.category}}</p>
     <p>{{competition.description}}</p>
     <button type="button" class="btn btn-danger share-btn">Share</button>
     <br/><br/>
  
-  {{!-- <label for="phone">Update your workouts:</label><br><br>
-  <input type="quantity" id="quantity" name="competition" placeholder="1-10"><br><br>
-  <input type="submit" id='{{competition.id}}' class="updateBtn btn btn-danger share-btn"></button> --}}
- 
 
-
+{{!-- Melissa work in progress --}}
  {{#if (userScore scoreboards.user_id user.id)}}
   <button type="button" class="btn btn-danger" id="update-btn" data-quantity="{{competition.quantity}}" data-scoreboard="{{scoreboards.id}}">Update score with {{competition.quantity}} {{competition.uom}}</button>
  {{/if}}
+
+
 <div id="score-list">
 {{#each competition.scoreboards}}
     <div data-userid="{{this.user.username}}" data-score="{{this.score}}"></div>
 {{/each}}
 </div>
 <ol id="scoreboard">
-
-
 </ol>
 
-
-
-
-     <br/><br/>
+<div id="winner"></div>
       
-  <small>Competition end date:<p>{{competition.end_date}}</p></small><br><br>
+  <small>Competition end date:<p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p></small><br><br>
 
-  
+  {{!-- End --}}
     
   <div class="card one">
                 <div class="header">
