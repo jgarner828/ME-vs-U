@@ -53,15 +53,15 @@ router.get('/:id', withAuth, async (req, res) => {
 
 
     const individualCompetition = await Competition.findByPk(req.params.id, {
-           include:
-              [{
-                model: User,
-                attributes: ['id', 'username'],
-              },
-              {
-                model: Scoreboard,
-                attributes: ['id', 'user_id'],
-              },]
+      include: [
+
+
+          {
+            model: Scoreboard,
+            attributes: ['id','user_id','competition_id','score'],
+            include: [{model: User, attributes: ['id','username']}],
+          },
+      ],
     });
 
 
@@ -69,6 +69,8 @@ router.get('/:id', withAuth, async (req, res) => {
       res.status(500).json(`${req.params.id} is not a valid competition`);
     } else {
       const competition = individualCompetition.get({ plain: true });
+      const newcomp=JSON.stringify(competition);
+      console.log('this is my console log '+ newcomp);
 
 
       res.render('displaycompetition', {competition});
