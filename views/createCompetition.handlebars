@@ -1,48 +1,83 @@
-<div>
-  <h3 class="text-primary">Create a New Competition:</h3>
-  <form id="competitionform">
-    <div>
-      <label class="text-primary" for="title">Title: </label>
-      <input id="title" name="title" />
+
+<br /><br /><br /><br /><br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-auto">
+
+   
+      </div>
     </div>
-    <div>
-      <label class="text-primary" for="category">Category: </label>
-        <select id="category" name="category">
-        <option value="fitness">Fitness</option>
-        <option value="food">Food</option>
-        <option value="hydration">Hydration</option>
-        <option value="finance">Finance</option>
-        <option value="fun">Just for Fun</option>
-        <option value="other">Other</option>
-        </select>
+  </div>
+  <br />
+  <section class="gradient-custom">
+    <div class="container py-9 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="w-75">
+          <div class="card bg-dark text-black" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <div class="card h-100">
+
+                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                  <h1 class="display-2 text-danger">
+                  <img src="/images/cc.png" alt="custom competition" />
+                  </h1>
+                  <h4 class="card-title text-danger">CREATE A COMPETITION</h4>
+                  <p class="card-text">
+                  <form id="competitionform">
+                    <div>
+                      <label class="text-danger" for="title">Title: </label>
+                      <input id="title" name="title" />
+                    </div>
+                    <div>
+                      <label class="text-danger" for="category">Category: </label>
+                      <select id="category" name="category">
+                        <option value="fitness">Fitness</option>
+                        <option value="food">Food</option>
+                        <option value="hydration">Hydration</option>
+                        <option value="finance">Finance</option>
+                        <option value="fun">Just for Fun</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="text-danger" for="description">Rules: </label>
+                      <input id="rules" name="description" />
+                    </div>
+                    <div>
+                      <input placeholder="Start Date" type="date" data-provide="datepicker" id="start_date"
+                        name="start-Date" class="form-control datepicker" />
+                    </div>
+                    <div>
+                      <input placeholder="End Date" type="date" data-provide="datepicker" id="end_date"
+                        name="start-Date" class="form-control datepicker" />
+                    </div>
+                    <div>
+                      <label class="text-danger" for="quantity">Increments: </label>
+                      <input type="number" id="quantity" name="increment" />
+                    </div>
+                    <div>
+                      <label class="text-danger" for="uom">Unit of Measurement: </label>
+                      <input id="uom" name="uom" />
+                    </div>
+                    <div>
+                      <div>
+                        <button id="createButton" type="submit" class="btn btn-danger">Create</button>
+                      </div>
+                  </form>
+                </div>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <label class="text-primary" for="description">Rules: </label>
-      <input id="rules" name="description" />
-    </div>
-    <div>
-     <input placeholder="Start Date"type="date" data-provide="datepicker" id="start_date" name="start-Date" class="form-control datepicker"/>
-    </div>
-    <div>
-  <input placeholder="End Date"type="date" data-provide="datepicker" id="end_date" name="start-Date" class="form-control datepicker" />
-    </div>
-    <div>
-      <label class="text-primary" for="quantity">Increments: </label>
-      <input type="number" id="quantity" name="increment" />
-    </div>
-    <div>
-      <label class="text-primary" for="uom">Unit of Measurement: </label>
-      <input id="uom" name="uom" />
-    </div>
-    <div>
-    <div>
-      <button
-        id="createButton"
-        type="submit"
-        class="btn btn-primary"
-      >Create</button>
-    </div>
-  </form>
 </div>
+</section>
+
 
 <script src="/js/createCompetition.js"></script>
+
+  
