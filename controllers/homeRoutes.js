@@ -36,11 +36,12 @@ router.get("/createCompetition", withAuth, async (req, res) => {
 });
 
 
-router.get("/invitePeople", async (req, res) => {
+router.get("/invitePeople/:id", async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const usersData = await User.findAll({
       attributes: ["id", "username"],
+      include: [{ model: Competition }],
     });
     // Serialize data so the template can read it
     const Users = usersData.map((User) => User.get({ plain: true }));

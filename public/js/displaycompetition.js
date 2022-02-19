@@ -4,7 +4,10 @@
 let scoreList = document.getElementById('score-list');
 let timeRemaining = document.getElementById('timeRemaining');
 let comp_id = document.getElementById('comp_id');
+let updateBtn = document.getElementById('update-btn');
 let competition_id= comp_id.getAttribute('data-competition_id');
+let quantity = updateBtn.getAttribute('data-quantity');
+
 let userScores =[];
 let users = [];
 
@@ -57,7 +60,7 @@ for(i=0; i<users.length;i++){
 };
 
 isActive();
-console.log(isActive());
+
 
 };
 
@@ -76,7 +79,7 @@ const isActive = function() {
 
 const updateWinner = async function() {
 const winner = users[0];
-console.log(winner);
+
   const response = await fetch(`/api/competitions/winner/${competition_id}`, {
     method: 'PUT',
     body: JSON.stringify({winner}),
@@ -98,28 +101,25 @@ if (response.ok) {
 
 const updateCompetition = async function() {
 
-  const quantity = document.getAttribute('data-quantity');
-  const scoreboardId = document.getAttribute('data-scoreboard');
 
 
-    // if (updateValue) {
-    //     // Send a POST request to the API endpoint
-    //     const response = await fetch('/api/scoreboard/updatescore', {
-    //       method: 'POST',
-    //       body: JSON.stringify({ updateValue }),
-    //       headers: { 'Content-Type': 'application/json' },
-    //     });
+        // Send a POST request to the API endpoint
+        const response = await fetch('/api/scoreboard/updatescore', {
+          method: 'PUT',
+          body: JSON.stringify({quantity, competition_id }),
+          headers: { 'Content-Type': 'application/json' },
+        });
     
-    //     if (response.ok) {
-    //       // If successful, redirect the browser to the blog posts
-    //       document.location.replace('/dashboard');
-    //       console.log("successful update");
-    //     } else {
-    //       alert(response.statusText);
-    //       console.log("unsuccessful update");
-    //     }
-    //   }
-};
+        if (response.ok) {
+          // If successful, redirect the browser to the blog posts
+          //document.location.replace(`/api/competitions/${competition_id}`);
+          console.log("successful update");
+        } else {
+          alert(response.statusText);
+          console.log("unsuccessful update");
+        }
+      };
+// };
 
 init();
 
