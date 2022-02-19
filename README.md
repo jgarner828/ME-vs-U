@@ -6,9 +6,9 @@ It’s said that when chased by a bear, you don’t need to outrun the bear; you
 
 As a competitive person I want to create, compete and invite friends into competitions.
 
-### Technologies Used
+### Functionality
 
-MeVsU is powered through HTML, CSS, Bootstrap, Javascript, and Node js
+MeVsU is deployed on Heroku, see the link below. It is mobile responsive with dynamic HTML, CSS, Bootstrap, Javascript, Node js and cfonts. We decided to use cfonts because we wanted a wow factor not only on our website but also in the terminal.
 
 ### Directions for Future Development
 
@@ -22,14 +22,35 @@ database.
 
 and Lastly, We would like to add more options to the reward system for our competitions.
 
-### Website Preview
+## Website Preview
 
 ![HomePage](public/images/ss.png)
+
+### Login
+
 ![LoginPage](public/images/login.png)
+
+### User Dashboard Pages
+
 ![dashboard1Page](public/images/dashboard1.png)
 ![dashboard2Page](public/images/dashboard.png)
+
+### Pending Competition Invites
+
 ![InvitesPage](public/images/invites.png)
+
+### Create a New Competition
+
 ![CreatePage](public/images/createComp.png)
+
+### cfont in the console
+
+![cfonts](public/images/cfont.png)
+
+## Heroku Link
+
+Heroku Link
+https://fast-beach-60601.herokuapp.com/
 
 ## Github Link
 
