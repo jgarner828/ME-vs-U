@@ -31,7 +31,7 @@ for(let i=0; i<scoreList.children.length;i++){
 };
 console.log(users);
 console.log(userScores);
-for(i=users.length-1; i>-1;i--){
+for(i=0; i<users.length;i++){
   let li = document.createElement("li");
 
   let userID = users[i];
