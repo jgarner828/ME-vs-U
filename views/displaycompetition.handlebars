@@ -183,7 +183,7 @@
 {{!-- start --}}
   
     <div class="share-button sharer" style="display: block;">
-    <h1 data-competition_id="{{competition.id}}">{{competition.title}}</h1>
+    <h1 id="comp_id" data-competition_id="{{competition.id}}">{{competition.title}}</h1>
     <p>{{competition.category}}</p>
     <p>{{competition.description}}</p>
     <button type="button" class="btn btn-danger share-btn">Share</button>
@@ -206,7 +206,7 @@
 
 <div id="winner"></div>
       
-  <small>Competition end date:<p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p></small><br><br>
+  <div id="timeRemaining" data-time= "{{timeRemaining competition.end_date competition.start_date}}"><small>Competition end date:<p>{{competition.end_date}}</p></small><br><br></div>
 
   {{!-- End --}}
     
