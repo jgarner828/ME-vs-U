@@ -1,3 +1,4 @@
+const { render } = require("express/lib/response");
 const { Competition, User, Scoreboard } = require("../../models");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
@@ -28,6 +29,7 @@ router.get('/allcompetitions', async (req, res) => {
 
 router.post("/addcompetition", withAuth, async (req, res) => {
   try {
+    console.log(res.body)
     const newCompetition = await Competition.create({
       title: req.body.title,
       category: req.body.category,
@@ -40,10 +42,17 @@ router.post("/addcompetition", withAuth, async (req, res) => {
       owner: req.session.user_id,
       isActive:'true'
     });
-    res.json(newCompetition);
+    if(!newCompetition) {
+      res.status(500).json('Error creating competition')
+    } else {
+      console.log('supposed to render invitePeople')
+      res.redirect('/');
+    }
+
+
   } catch (error) {
     console.error(error);
-    res.status(500);
+    res.status(500).json(error);
   }
 });
 

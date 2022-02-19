@@ -69,11 +69,11 @@ router.get('/adduser', (req, res) => {
 
 router.post('/adduser', (req, res) => {
 
-
-
-  res.status(200).json(req.body)
+  
 try {
-  const { username, email, password } = req.body
+  const { username, email, password } = req.body;
+  
+  res.status(200).json(req.body)
 } catch (error) {
   res.status(500).json(error)
   
@@ -81,4 +81,31 @@ try {
 
 })
 
+
+router.get('/all', async (req, res) => {
+
+  try {
+    let allUsers = await User.findAll({exclude: ['password']});
+
+
+    let usersArray = await allUsers.map( (element) => {
+        return element.username
+    });
+
+    let userIdArray = await allUsers.map( (element) => {
+        return element.id
+    });
+
+    var newOrderObject = userIdArray.reduce(function(acc, item, i) {
+      return Object.assign(acc, { [item]: usersArray[i] })
+    }, {});
+    
+    res.status(200).json(newOrderObject);
+
+  } catch (error) {
+    res.status(500).json(error);
+    
+  }
+
+})
 module.exports = router;
