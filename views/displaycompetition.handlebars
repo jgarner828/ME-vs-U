@@ -1,283 +1,114 @@
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+  .category {
+    text-transform: uppercase;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  line-height: 1.5;
-  transition: all 0.3s ease-in-out;
-  font-family: "Josefin Sans", Arial;
-}
-
-
-
-.card {
-  
-  min-height: 475px;
-  width: 275px;
-  margin: 20px;
-  border-radius: 15px;
-  background: #02383c;
-}
-
-.card .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  color: #ddd;
-}
-
-.card .header .title {
-  font-weight: 300;
-}
-
-.one .sort {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 14.1px;
-}
-
-.one .sort .day {
-  padding: 0.4rem 1.2rem;
-  margin: 0 0.1rem;
-  cursor: pointer;
-}
-
-.one .sort .day.active,
-.one .sort .day:active {
-  background: rgba(210, 255, 213, 0.3);
-  border-radius: 25px;
-}
-
-::selection {
-  background: rgba(210, 255, 213, 0.3);
-}
-
-.photo {
-  width: 75px;
-  background: #fff;
-  border-radius: 50%;
-  border: 5px solid cyan;
-  box-shadow: 0 0 20px cyan;
-  margin: 1rem 0;
-}
-
-.main {
-  width: 85px;
-}
-
-.profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.profile .person {
-  display: flex;
-  margin: 1rem 0;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.profile .person.first {
-  z-index: 10;
-  transform: translateY(-10%);
-}
-
-.first .fa-crown {
-  color: gold;
-  filter: drop-shadow(0px 0px 5px gold);
-}
-
-.num {
-  color: white;
-}
-
-.fa-caret-up {
-  color: cyan;
-  font-size: 21px;
-}
-
-.link {
-  margin: 0.2rem 0;
-  color: #fff;
-  margin-top: -0.3rem;
-  font-size: 13px;
-}
-
-.points {
-  color: rgb(0, 225, 255);
-  font-size: 17px;
-}
-
-.second {
-  margin-right: -0.7rem !important;
-}
-
-.third {
-  margin-left: -0.7rem !important;
-}
-
-.p_img {
-  width: 50px;
-  background: #fff;
-  border-radius: 50%;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-.others {
-  display: flex;
-  width: 100%;
-  margin-top: 1rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 30px;
-  background: rgba(210, 255, 213, 0.3);
-}
-
-.info .points {
-  margin-left: 0.2rem;
-  margin-right: 1.2rem;
-}
-
-.info .link {
-  margin: 0 1rem;
-}
-
-.rank {
-  display: flex;
-  align-items: center;
-  margin: 0 1rem;
-  flex-direction: column-reverse;
-}
-
-.rank i {
-  margin-top: -5px !important;
-}
-
-.rank .num {
-  margin: 0 !important;
-}
+  h4 {
+    color: rgb(68, 64, 64);
+  }
 </style>
+<br><br>
+<br><br>
+<br><br>
+<h1 data-competition_id="{{competition.id}}">{{competition.title}}</h1>
+<h4>{{competition.description}}</h4>
+<h4>Competition end date:</h4>
+<p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p>
+
+<p class="category">{{competition.category}}</p>
+<section class="gradient-custom">
+  <div class="container py-1">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="w-75">
+        <div class="card bg-dark text-black" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column justify-content-end align-items-center">
+                <h1 class="display-2 text-danger">
+                  <img src="/images/hptug.png" alt="tug of war icon" />
+                </h1>
+                <h4 class="card-title text-danger">Leaderboard</h4>
+                <p class="card-text">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Username</th>
+                      <th scope="col">Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>@melificent</td>
+                      <td>32</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>@jmac</td>
+                      <td>22</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>@slabrot</td>
+                      <td>16</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="table">
+                  <h4 class="card-title text-danger"><span class="ion ion-md-trophy"></span> Winner </h4>
+
+                  <tbody>
+                    <tr>
+
+                      <th type="username" id="winner" placeholder="WINNER"></th>
 
 
-<div>
-
-{{!-- start --}}
-  
-    <div class="share-button sharer" style="display: block;">
-    <h1 data-competition_id="{{competition.id}}">{{competition.title}}</h1>
-    <p>{{competition.category}}</p>
-    <p>{{competition.description}}</p>
-    <button type="button" class="btn btn-danger share-btn">Share</button>
-    <br/><br/>
- 
-
-{{!-- Melissa work in progress --}}
- {{#if (userScore scoreboards.user_id user.id)}}
-  <button type="button" class="btn btn-danger" id="update-btn" data-quantity="{{competition.quantity}}" data-scoreboard="{{scoreboards.id}}">Update score with {{competition.quantity}} {{competition.uom}}</button>
- {{/if}}
-
-
-<div id="score-list">
-{{#each competition.scoreboards}}
-    <div data-userid="{{this.user.username}}" data-score="{{this.score}}"></div>
-{{/each}}
-</div>
-<ol id="scoreboard">
-</ol>
-
-<div id="winner"></div>
-      
-  <small>Competition end date:<p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p></small><br><br>
-
-  {{!-- End --}}
-    
-  <div class="card one">
-                <div class="header">
-                  <i class="arrow fas fa-chevron-left"></i>
-                  <h3 class="title">Leaderboard</h3>
-                  <div></div>
-                </div>
-                <div class="sort">
-                  <div class="day">Today</div>
-                  <div class="day active">Week</div>
-                  <div class="day">Month</div>
-                </div>
-                <div class="profile">
-                  <div class="person second">
-                    <div class="num">2</div>
-                    <i class="fas fa-caret-up"></i>
-                    <img
-                      src="https://image.flaticon.com/icons/png/512/949/949666.png"
-                      alt=""
-                      class="photo"
-                    />
-                    <p class="link">@dorisklien</p>
-                    <p class="points">8023</p>
-                  </div>
-                  <div class="person first">
-                    <div class="num">1</div>
-                    <i class="fas fa-crown"></i>
-                    <img
-                      src="https://image.flaticon.com/icons/png/512/4086/4086600.png"
-                      alt=""
-                      class="photo main"
-                    />
-                    <p class="link">@sher234</p>
-                    <p class="points">8122</p>
-                  </div>
-                  <div class="person third">
-                    <div class="num">3</div>
-                    <i class="fas fa-caret-up"></i>
-                    <img
-                      src="https://image.flaticon.com/icons/png/512/4333/4333609.png"
-                      alt=""
-                      class="photo"
-                    />
-                    <p class="link">@lord_0980</p>
-                    <p class="points">7884</p>
-                  </div>
-                </div>
-                <div class="rest">
-                  <div class="others flex">
-                    <div class="rank">
-                      <i class="fas fa-caret-up"></i>
-                      <p class="num">4</p>
-                    </div>
-                    <div class="info flex">
-                      <img
-                        src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
-                        alt=""
-                        class="p_img"
-                      />
-                      <p class="link">@adam56</p>
-                      <p class="points">7861</p>
-                    </div>
-                  </div>
-                </div>
+                    </tr>
+                  </tbody>
+                </table>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-</div>
+    </div>
+  </div>
+</section>
+<div>
 
-<script src="/js/displaycompetition.js"></script>
+  {{!-- start --}}
+
+  <div class="share-button sharer" style="display: block;">
+
+    <button type="button" class="btn btn-danger share-btn">Share</button>
+    <br /><br />
+
+
+    {{!-- Melissa work in progress --}}
+    {{#if (userScore scoreboards.user_id user.id)}}
+    <button type="button" class="btn btn-danger" id="update-btn" data-quantity="{{competition.quantity}}"
+      data-scoreboard="{{scoreboards.id}}">Update score with {{competition.quantity}} {{competition.uom}}</button>
+    {{/if}}
+
+
+    <div id="score-list">
+      {{#each competition.scoreboards}}
+      <div data-userid="{{this.user.username}}" data-score="{{this.score}}"></div>
+      {{/each}}
+    </div>
+    <ol id="scoreboard">
+    </ol>
+
+    <div id="winner"></div>
+
+
+
+    {{!-- End --}}
+
+
+  </div>
+
+  <script src="/js/displaycompetition.js"></script>
