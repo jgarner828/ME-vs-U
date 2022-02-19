@@ -35,18 +35,24 @@ for(i=1; i<users.length;i++){
 };
 
 for(i=0; i<users.length;i++){
-  let li = document.createElement("li");
+  let row =  document.createElement("tr");
+  let th = document.createElement("th");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
 
   let userID = users[i];
   let score = userScores[i];
-  console.log(score);
 
+  row.setAttribute('scope','row');
+  th.innerHTML = i+1;
+  td1.innerHTML = `${userID}`;
+  td2.innerHTML = `${score}`;
 
-  var scoreText = document.createElement('p'); 
-  scoreText.innerHTML = `${userID} has a score of ${score}`;
+  row.appendChild(th);
+  row.appendChild(td1);
+  row.appendChild(td2);
 
-  li.appendChild(scoreText);
-  document.getElementById('scoreboard').appendChild(li);
+  document.getElementById('scoreboard').appendChild(row);
 
 };
 
@@ -71,7 +77,7 @@ const isActive = function() {
 const updateWinner = async function() {
 const winner = users[0];
 console.log(winner);
-  const response = await fetch(`/api/competition/winner/${competition_id}`, {
+  const response = await fetch(`/api/competitions/winner/${competition_id}`, {
     method: 'PUT',
     body: JSON.stringify({winner}),
     headers: {
@@ -79,9 +85,10 @@ console.log(winner);
     },
 });
 if (response.ok) {
-  var winnerText = document.createElement('h3'); 
-  winnerText.innerHTML = `${winner} won the competition!!`;
-  document.getElementById('score-list').appendChild(winnerText);
+
+  let td = document.getElementById("winner");
+  td.innerHTML = `${winner}`;
+
     return;
   } else {
     alert('Failed to update competition');

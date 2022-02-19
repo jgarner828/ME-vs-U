@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require("../../utils/auth");
 
 router.post('/', async (req, res) => {
   try {
@@ -69,11 +70,11 @@ router.get('/adduser', (req, res) => {
 
 router.post('/adduser', (req, res) => {
 
-
-
-  res.status(200).json(req.body)
+  
 try {
-  const { username, email, password } = req.body
+  const { username, email, password } = req.body;
+  
+  res.status(200).json(req.body)
 } catch (error) {
   res.status(500).json(error)
   
@@ -81,4 +82,25 @@ try {
 
 })
 
+
+router.get('/all', withAuth, async (req, res) => {
+
+  try {
+    let allUsers = await User.findAll({exclude: ['password']});
+
+
+    let usernames = await allUsers.map( (element) => {
+    return element.username
+    });
+
+    console.log(usernames)
+
+    res.render('invitePeople', {usernames});
+
+  } catch (error) {
+    res.status(500).json(error);
+    
+  }
+
+})
 module.exports = router;

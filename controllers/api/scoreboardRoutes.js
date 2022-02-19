@@ -1,4 +1,4 @@
-const { Scoreboard } = require("../../models");
+const { Scoreboard, Competition, User } = require("../../models");
 const { sequelize } = require("../../models/User");
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
@@ -94,5 +94,37 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 
+// TODO: THIS IS NOT currently working. it will not find the User table to get user ID from the table
+router.post('/add', async (req, res) => {
+  try {
+
+    let { username, competition_id } = req.body;
+    console.log(username)
+    console.log(competition_id)
+
+    const users = await User.findAll({
+      where: {
+        username: username,
+      },
+    });
+
+    const userInfo = users.map((user) => user.get({ plain: true }));
+
+
+    const addUsertoComp = await Scoreboard.create({
+      user_id: userInfo[0].id,
+      competition_id: competition_id,
+    });
+
+    if(!addUsertoComp) {
+      res.status(500).json('Could not add user to the competition')
+    } else {
+      res.status(200).json(req.body)
+    }
+
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
   
 module.exports = router;

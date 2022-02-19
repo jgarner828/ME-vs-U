@@ -1,3 +1,7 @@
+//const init = require("connect-session-sequelize");
+
+
+
 const inviteButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-response')) {
       const response = event.target.getAttribute('data-response');
@@ -41,7 +45,8 @@ const inviteButtonHandler = async (event) => {
 
   };
   
-  
+
+
   document
     .querySelector('#pending-invites')
     .addEventListener('click', inviteButtonHandler);

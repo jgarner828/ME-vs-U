@@ -18,7 +18,7 @@
                 <h1 class="display-2 text-danger">
                   <span class="ion ion-ios-time-outline"></span>
                 </h1>
-                <h4 class="card-title text-danger">Active Competitions</h4>
+                <h4 class="card-title text-danger">My Competitions</h4>
                 <p class="card-text">
 
                 <ul>
@@ -62,7 +62,7 @@
                 <h1 class="display-2 text-danger">
                   <img src="/images/hptug.png" alt="tug of war icon" />
                 </h1>
-                <h4 class="card-title text-danger">Custom Competitions</h4>
+                <h4 class="card-title text-danger">Created Competitions</h4>
                 <p class="card-text">
                 <ul>
                   {{#if competitions.length}}
@@ -151,11 +151,11 @@
                     <p>{{scoreboards.competition.title}}</p>
                     <p>
                       <button data-response="accept" data-id="{{scoreboards.id}}"
-                        class="btn btn-primary">Accept</button>
+                        class="btn btn-danger">Accept</button>
                     </p>
                     <p>
                       <button data-response="decline" data-id="{{scoreboards.id}}"
-                        class="btn btn-danger">Decline</button>
+                        class="btn btn-outline-danger">Decline</button>
                     </p>
                     {{!-- {{/if}} --}}
                     {{/unless}}
