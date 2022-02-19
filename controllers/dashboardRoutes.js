@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     const newUser=JSON.stringify(user);
-    console.log(newUser);
+
 
     res.render('dashboard', {
       ...user,

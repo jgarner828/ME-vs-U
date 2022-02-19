@@ -5,24 +5,37 @@
    <br>
   <h3>Invite People to your Competition!</h3>
 <br>
-  <div class="dropdown">
+  {{!-- <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     See user list
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    {{#each usernames}}
-       <a value="" id="user1" class="dropdown-item" href="{{usernames.id}}">{{usernames}}</a>
-  </div> <br>
-  {{/each}}
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+
+
+
+ <form>
+  <div class="form-group">
+    <label for="users">Select Users</label>
+    <select multiple class="form-control" id="users">
+    {{#each Users}}
+         <option value="{{this.id}}" class="dropdown-item">{{this.username}}</option>
+         {{!-- <a value="" id="user1" class="dropdown-item" href="{{this.id}}">{{this.username}}</a> --}}
+         {{/each}}
+    </select>
+      <button type="submit" class="btn btn-primary" id="add-users">Submit</button>
+  </div>
+</form>
+
+  {{!-- </div> <br> --}}
+{{!-- 
   <br>
  
-</div>
-     <button
+</div> --}}
+     {{!-- <button
         id="createButton"
         type="submit"
         class="btn btn-primary"
-      >Start Competing</button>
-
+      >Start Competing</button> --}}
 
 
 
