@@ -12,13 +12,24 @@ MeVsU is powered through HTML, CSS, Bootstrap, Javascript, and Node js
 
 ### Directions for Future Development
 
--
--
--
+--We would like to utilize other applications to help populate our competition inputs. ie, myfitness pal(you would be able to add calories if you're doing that competition about who
+can eat the least amount of calories),or you could be able to add miles and steps througn an app called map my run, which is an fitness app that counts your steps and miles.
+--We would like the ability to make the competitions either public or private. ie, you can compete with your own personal friends or you can compete and
+view competitions around the world that are happening at that moment.
+--We would like to develop a search function for adding people to your competition. For example: choosing from a list in your personal friend group or choosing people from a general
+database.
+--We would also like to link it to social media so our users can show off their progress to their friends.
+
+and Lastly, We would like to add more options to the reward system for our competitions.
 
 ### Website Preview
 
 ![HomePage](public/images/ss.png)
+![LoginPage](public/images/login.png)
+![dashboard1Page](public/images/dashboard1.png)
+![dashboard2Page](public/images/dashboard.png)
+![InvitesPage](public/images/invites.png)
+![CreatePage](public/images/createComp.png)
 
 ## Github Link
 
