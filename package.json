@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jgarner828/ME-vs-U#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cfonts": "^2.10.0",
     "connect-session-sequelize": "^7.1.2",
     "dayjs": "^1.10.7",
     "dotenv": "^16.0.0",
