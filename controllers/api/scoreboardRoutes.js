@@ -38,7 +38,7 @@ router.post('/add', async (req, res) => {
     console.log(competition_id);
 
 
-    // TODO: need to parse the competition id out of the headers.referer... need to go through each username and add to that competition.
+    // TODO:  need to go through each username and add to that competition.
 
     // usernames.forEach( user => {
     //   const addUsertoComp = Scoreboard.create({username: user, competition_id});
@@ -47,7 +47,7 @@ router.post('/add', async (req, res) => {
     //   }
     // });
 
-    res.redirect('/');
+    res.render('dashboard');
 
   } catch (error) {
     res.status(500).json(error)
