@@ -26,6 +26,36 @@ router.put('/updatescore', async (req, res) => {
   }
 });
 
+
+router.post('/add', async (req, res) => {
+  try {
+
+    let { usernames } = req.body;
+    console.log(usernames)
+    let competition_id = req.headers.referer;
+    const myArray = competition_id.split("invitePeople/");
+    competition_id = myArray[1];
+    console.log(competition_id);
+
+
+    // TODO: need to parse the competition id out of the headers.referer... need to go through each username and add to that competition.
+
+    // usernames.forEach( user => {
+    //   const addUsertoComp = Scoreboard.create({username: user, competition_id});
+    //   if(!addUsertoComp) {
+    //     res.status(500).json(`could not add ${user}`);
+    //   }
+    // });
+
+    res.redirect('/');
+
+  } catch (error) {
+    res.status(500).json(error)
+  }
+});
+
+
+
 router.put('/:id', withAuth, async (req, res) => {
   
   try {
@@ -46,7 +76,6 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 
 
@@ -80,37 +109,5 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 
-// TODO: THIS IS NOT currently working. it will not find the User table to get user ID from the table
-router.post('/add', async (req, res) => {
-  try {
 
-    let { username, competition_id } = req.body;
-    console.log(username)
-    console.log(competition_id)
-
-    const users = await User.findAll({
-      where: {
-        username: username,
-      },
-    });
-
-    const userInfo = users.map((user) => user.get({ plain: true }));
-
-
-    const addUsertoComp = await Scoreboard.create({
-      user_id: userInfo[0].id,
-      competition_id: competition_id,
-    });
-
-    if(!addUsertoComp) {
-      res.status(500).json('Could not add user to the competition')
-    } else {
-      res.status(200).json(req.body)
-    }
-
-  } catch (error) {
-    res.status(500).json(error)
-  }
-});
-  
 module.exports = router;

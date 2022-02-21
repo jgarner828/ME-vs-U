@@ -18,11 +18,11 @@
     <label for="users">Select Users</label>
     <select multiple class="form-control" id="users">
     {{#each Users}}
-         <option value="{{this.id}}" class="dropdown-item">{{this.username}}</option>
+         <option value="{{this.id}}" class="username dropdown-item">{{this.username}}</option>
          {{!-- <a value="" id="user1" class="dropdown-item" href="{{this.id}}">{{this.username}}</a> --}}
          {{/each}}
     </select>
-      <button class="btn btn-light" id="add-users"><a color="white"class="nav-link" href="/dashboard">Submit</a></button>
+      <button class="btn btn-light" id="addUsers"><a color="white"class="nav-link" href="/dashboard">Submit</a></button>
   </div>
 </form>
 
@@ -40,4 +40,4 @@
 
 
 
-{{!-- <script src="/js/invitePeople.js"></script>  --}}
+<script src="/js/invitePeople.js"></script> 

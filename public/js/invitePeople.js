@@ -1,44 +1,36 @@
-// const url= window.location.href;
+ const url= window.location.href;
 // const users=[];
 // console.log(comp_id);
 
-const getUsers =  function(event) {
-    // event.preventDefault();
-  
-    // // Collect values from the login form
-    // const user_id = 1;
-    // const score = 0;
-    // const competition_id = 20;
+const getUsers = async  function(event) {
 
+    event.preventDefault();
+    console.log('in getUsers function')
+  
+    let users = document.querySelectorAll('.username');
+    let usernameArray = Array.from(users)
+    let usernames = []
+    usernameArray.forEach(user => {
+      usernames.push(user.label)
+    })
+  
+    console.log(usernames)
+    // users contains an array of all users.
 
-    //   // Send a POST request to the API endpoint
-    //   const response = await fetch("/api/scoreboard/add", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       user_id,
-    //       score,
-    //       competition_id,
-    //     }),
-    //     headers: { "Content-Type": "application/json" },
-    //   });
-  
-    //   if (response.ok) {
-  
-    //     document.location.replace('/dashboard');
-  
-    //   } else {
-    //     alert(response.statusText);
-    //     console.log("unsuccessful");
-    //   }
+    let competition_id = 1;
 
-      document.location.replace('/dashboard');
-    };
+    fetch('/api/scoreboard/add', {
+      method: 'POST',
+      body: JSON.stringify({ usernames, competition_id }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+};
  
 
 
   document
-  .querySelector("#add-users")
-  .addEventListener("submit", getUsers);
+  .querySelector("#addUsers")
+  .addEventListener("click", getUsers);
 
 
 
