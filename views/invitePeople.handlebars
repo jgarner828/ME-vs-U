@@ -16,14 +16,14 @@
  <form>
   <div class="form-group">
     <label for="users">Select Users</label>
-    <select multiple class="form-control" id="users">
+
     {{#each Users}}
-         <option value="{{this.id}}" class="username dropdown-item">{{this.username}}</option>
-         {{!-- <a value="" id="user1" class="dropdown-item" href="{{this.id}}">{{this.username}}</a> --}}
-         {{/each}}
-    </select>
-      <button class="btn btn-light" id="addUsers"><a color="white"class="nav-link" href="/dashboard">Submit</a></button>
+    <div class="form-check">
+  <input class="username form-check-input" type="checkbox" value="" id="{{this.id}}">
+  <label class="form-check-label" for="{{this.id}}">{{this.username}}</label>
+    {{/each}}
   </div>
+    <button class="btn btn-light" id="addUsers"><a color="white"class="nav-link" href="/dashboard">Submit</a></button>
 </form>
 
   {{!-- </div> <br> --}}

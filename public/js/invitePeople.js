@@ -10,20 +10,25 @@ const getUsers = async  function(event) {
     let users = document.querySelectorAll('.username');
     let usernameArray = Array.from(users)
     let usernames = []
-    usernameArray.forEach(user => {
-      usernames.push(user.label)
-    })
-  
-    console.log(usernames)
-    // users contains an array of all users.
 
-    let competition_id = 1;
+    // pushing all checked users into the usernames array. need to pull Id out for each one
+    for(var user of usernameArray) {
+      if(user.checked) {
+          usernames.push(user)
+      }
+    };
+
+    let userIds = usernames.map( user => {
+      return user.id;
+    })
+
 
     fetch('/api/scoreboard/add', {
       method: 'POST',
-      body: JSON.stringify({ usernames, competition_id }),
+      body: JSON.stringify({ userIds }),
       headers: { 'Content-Type': 'application/json' },
     });
+
 };
  
 
@@ -31,7 +36,6 @@ const getUsers = async  function(event) {
   document
   .querySelector("#addUsers")
   .addEventListener("click", getUsers);
-
 
 
 

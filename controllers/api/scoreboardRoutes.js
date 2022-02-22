@@ -30,22 +30,24 @@ router.put('/updatescore', async (req, res) => {
 router.post('/add', async (req, res) => {
   try {
 
-    let { usernames } = req.body;
-    console.log(usernames)
+    let { userIds } = req.body;
+    console.log(userIds)
+    
     let competition_id = req.headers.referer;
     const myArray = competition_id.split("invitePeople/");
     competition_id = myArray[1];
     console.log(competition_id);
 
 
-    // TODO:  need to go through each username and add to that competition.
+  userIds.forEach( async (user_id) => {
+    const addUsertoScoreboard = await Scoreboard.create({ user_id, competition_id, score: 0, isAccepted: false, isDeclined: false});
+      if(!addUsertoScoreboard) {
+        console.log(`Failed to add User_id ${user_id} to ${competition_id}`)
+      } else {
+        console.log(`Added User_id ${user_id} to ${competition_id}.`)
+      }
+  });
 
-    // usernames.forEach( user => {
-    //   const addUsertoComp = Scoreboard.create({username: user, competition_id});
-    //   if(!addUsertoComp) {
-    //     res.status(500).json(`could not add ${user}`);
-    //   }
-    // });
 
     res.render('dashboard');
 
