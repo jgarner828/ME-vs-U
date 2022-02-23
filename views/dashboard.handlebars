@@ -30,7 +30,7 @@
                   <li>
                     <a href="/api/competitions/{{scoreboards.competition_id}}"
                       class="btn btn-danger mt-auto">{{scoreboards.competition.title}}</a></button>
-                    {{!-- <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining --}}
+                    
                     </p>
                   </li>
                   {{!-- {{/if}} --}}
@@ -73,7 +73,7 @@
                       class="btn btn-danger mt-auto">{{competitions.title}}</a>
 
                     <p class="d-none end_date">{{competitions.end_date }}</p>
-                    <p id="time-left">{{timeRemaining competitions.end_date competitions.start_date}} days remaining
+                      <p id="time-left">Ends {{moment competitions.end_date "fromNow"}}
                     </p>
                   </li>
                   {{/each}}

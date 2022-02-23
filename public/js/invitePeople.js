@@ -28,7 +28,7 @@ const getUsers = async  function(event) {
       body: JSON.stringify({ userIds }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    document.location.replace(`/dashboard`);
 };
  
 

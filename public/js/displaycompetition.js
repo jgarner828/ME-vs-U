@@ -60,7 +60,8 @@ const init = function () {
 const isActive = function () {
   timeLeft = timeRemaining.getAttribute("data-time");
 
-  if (timeLeft == 0) {
+
+  if (timeLeft.includes('ago')) {
     updateWinner();
     return false;
   } else {
@@ -108,16 +109,16 @@ const updateCompetition = async function () {
 };
 // };
 
-const inviteToCompetition = async function () {
-  const comp = document.querySelector(".share-btn").id;
-  console.log(comp);
+// const inviteToCompetition = async function () {
+//   const comp = document.querySelector(".share-btn").id;
+//   console.log(comp);
 
-  // ***************************************************************************************LOOK HERE!!!
-  // TODO: Need to get fetch redirecting properly to the correct route for share button
-  fetch(`/invitePeople/${comp}`);
-  // .then((response) => response.json())
-  // .then((data) => console.log(data));
-};
+//   // ***************************************************************************************LOOK HERE!!!
+//   // TODO: Need to get fetch redirecting properly to the correct route for share button
+//   fetch(`/invitePeople/${comp}`);
+//   // .then((response) => response.json())
+//   // .then((data) => console.log(data));
+// };
 
 init();
 
@@ -125,6 +126,6 @@ document
   .querySelector("#update-btn")
   .addEventListener("click", updateCompetition);
 
-document
-  .querySelector(".share-btn")
-  .addEventListener("click", inviteToCompetition);
+// document
+//   .querySelector(".share-btn")
+//   .addEventListener("click", inviteToCompetition);

@@ -13,7 +13,7 @@
 
 <h1 id="comp_id" data-competition_id="{{competition.id}}">{{competition.title}}</h1>
 <h4>{{competition.description}}</h4>
-<h4 id="timeRemaining" data-time= "{{timeRemaining competition.end_date competition.start_date}}">Competition end date:</h4>
+<h4 id="timeRemaining" data-time= "{{moment competition.end_date "fromNow"}}">Competition end date:</h4>
 <p data-end_date="{{competition.end_date}}" data-start_date="{{competition.start_date}}">{{competition.end_date}}</p>
 
 <p class="category">Competition Category: {{competition.category}}</p>
@@ -72,11 +72,13 @@
 
   <div class="share-button sharer" style="display: block;">
 
-    <button type="button" id="{{competition.id}}" class="btn btn-danger share-btn">Share</button>
+    <button class="btn btn-danger" id="addUsers"><a style="color: white" class="nav-link" href="/invitePeople/{{competition.id}}">Share</a></button>
+   
+   
+   
+   {{!-- <button type="button" id="{{competition.id}}" class="btn btn-danger share-btn">Share</button> --}}
     <br /><br />
 
-
-    {{!-- Melissa work in progress --}}
 
 
     <button type="button" class="btn btn-danger" id="update-btn" data-quantity="{{competition.quantity}}"
